@@ -1,4 +1,4 @@
-# Rsbuild project
+# AILean
 
 ## Setup
 
@@ -10,20 +10,22 @@ pnpm install
 
 ## Get started
 
-Start the dev server:
+Start the sample project
 
 ```bash
-pnpm dev
+pnpm sample dev
 ```
 
-Build the app for production:
+## Scripts
+
+linting
 
 ```bash
-pnpm build
+pnpm run lint
 ```
 
-Preview the production build locally:
+format
 
 ```bash
-pnpm preview
+pnpm run format
 ```
