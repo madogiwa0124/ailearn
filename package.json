@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "sample": "pnpm -F \"sample\"",
+    "vue-sample-app": "pnpm -F \"vue-sample-app\"",
     "lint": "biome lint",
     "format": "biome format"
   },
