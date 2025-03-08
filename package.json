@@ -1,0 +1,16 @@
+{
+  "name": "ailearn",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sample": "pnpm -F \"sample\"",
+    "lint": "biome lint",
+    "format": "biome format"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "typescript": "^5.8.2"
+  },
+  "packageManager": "pnpm@10.6.1"
+}

@@ -1,0 +1,15 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/typescript-node",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "editorconfig.editorconfig",
+        "biomejs.biome",
+        "github.copilot",
+        "github.copilot-chat"
+      ]
+    }
+  },
+  "forwardPorts": [3000]
+}

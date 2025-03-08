@@ -1,0 +1,14 @@
+# Local
+.DS_Store
+*.local
+*.log*
+
+# Dist
+node_modules
+.pnpm-store
+dist/
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
