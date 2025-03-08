@@ -15,7 +15,7 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
 
-  packages/sample1:
+  packages/sample:
     devDependencies:
       '@rsbuild/core':
         specifier: ^1.2.14
