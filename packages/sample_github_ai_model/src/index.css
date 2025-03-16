@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  color: #fff;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(to bottom, #020917, #101725);
+}
+
+.content {
+  display: flex;
+  min-height: 100vh;
+  line-height: 1.1;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.content h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+
+.content p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+/* テキストエリアのスタイル */
+.input-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+textarea#userQuestion {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 16px;
+  resize: vertical;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+textarea#userQuestion:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+textarea#userQuestion::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ボタンのスタイル */
+button#fetchButton {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px auto;
+  transition: background-color 0.3s;
+}
+
+button#fetchButton:hover {
+  background-color: #45a049;
+}
+
+/* レスポンス表示エリアのスタイル */
+.response-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  min-height: 50px;
+}
+
+.response-container h3 {
+  margin-top: 0;
+  color: #4caf50;
+}
+
+#loading {
+  margin: 20px 0;
+  font-style: italic;
+  color: #aaa;
+}
+
+.error-message {
+  color: #ff6b6b;
+}

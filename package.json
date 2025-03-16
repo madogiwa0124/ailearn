@@ -6,12 +6,19 @@
   "scripts": {
     "sample": "pnpm -F \"sample\"",
     "vue-sample-app": "pnpm -F \"vue-sample-app\"",
+    "sample_github_ai_model": "pnpm -F \"sample_github_ai_model\"",
     "lint": "biome lint",
     "format": "biome format"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@types/node": "^22.13.10",
     "typescript": "^5.8.2"
   },
-  "packageManager": "pnpm@10.6.1"
+  "packageManager": "pnpm@10.6.1",
+  "pnpm": {
+    "executionEnv": {
+      "nodeVersion": "22.12.0"
+    }
+  }
 }

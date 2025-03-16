@@ -1,0 +1,27 @@
+{
+  "name": "sample_github_ai_model",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "dev": "rsbuild dev --port 3000",
+    "preview": "rsbuild preview",
+    "server": "node --experimental-strip-types --experimental-transform-types --experimental-detect-module --no-warnings=ExperimentalWarning server/index.ts",
+    "start": "concurrently \"pnpm run server\" \"pnpm run dev\""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "openai": "5.0.0-beta.0"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^1.2.14",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "concurrently": "^8.2.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}

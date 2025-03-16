@@ -7,9 +7,10 @@
         "editorconfig.editorconfig",
         "biomejs.biome",
         "github.copilot",
-        "github.copilot-chat"
+        "github.copilot-chat",
+        "ms-vscode.vscode-speech"
       ]
     }
   },
-  "forwardPorts": [3000]
+  "forwardPorts": [3000, 3001, 5173]
 }
