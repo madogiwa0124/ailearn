@@ -11,6 +11,22 @@ This document provides guidelines and best practices for using GitHub Copilot in
 - **Consistent Formatting**: Ensure that your code is consistently formatted. Use tools like Prettier or Biome to automatically format your code.
 - **Naming Conventions**: Use clear and descriptive names for variables, functions, and classes. Follow camelCase for variables and functions, and PascalCase for classes and interfaces.
 - **Comments**: Write meaningful comments to explain complex logic or important sections of your code. Avoid redundant comments.
+- **Arrow Functions**: When defining functions, use arrow functions (`=>` syntax) by default. This preserves the `this` context and results in more concise code. Examples:
+  ```typescript
+  // Recommended
+  const add = (a: number, b: number): number => a + b;
+  
+  // For multi-line functions
+  const calculate = (a: number, b: number): number => {
+    const result = a * b;
+    return result + 10;
+  };
+  
+  // Avoid traditional function declarations when possible
+  // function add(a: number, b: number): number {
+  //   return a + b;
+  // }
+  ```
 
 ### 2. TypeScript Specific
 
