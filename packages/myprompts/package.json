@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev --host",
     "generate": "nuxt generate",
+    "generate-preview": "pnpm dlx http-server .output/public --port 3000",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
