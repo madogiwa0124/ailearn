@@ -1,4 +1,8 @@
 import type { ContentCollectionItem } from "@nuxt/content";
+import { Tiktoken } from "js-tiktoken/lite";
+import o200k_base from "js-tiktoken/ranks/o200k_base";
+
+const tiktoken = new Tiktoken(o200k_base);
 
 /**
  * Interface representing the prompt file information
@@ -9,6 +13,7 @@ export interface Prompt {
   content: string;
   description: string;
   filename: string;
+  tokens: number;
 }
 
 const buildPrompt = (file: ContentCollectionItem): Prompt => {
@@ -20,12 +25,14 @@ const buildPrompt = (file: ContentCollectionItem): Prompt => {
   // Extract description (use first paragraph)
   const description = file.description.replace("\\n", "");
   const content = file.rawbody.replace(/\\n/g, "\n") || "";
+  const tokens = tiktoken.encode(content).length;
   return {
     id,
     title,
     content,
     description,
     filename,
+    tokens,
   };
 };
 

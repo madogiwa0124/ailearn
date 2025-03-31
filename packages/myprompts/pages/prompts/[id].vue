@@ -36,6 +36,8 @@
           </div>
           <h1 class="text-3xl font-bold mb-2">{{ prompt.title }}</h1>
           <p class="text-sm text-gray-500">Filename: {{ prompt.filename }}</p>
+          <p class="text-sm text-gray-500">Characters: {{ prompt.content.length }}</p>
+          <p class="text-sm text-gray-500">Tokens: {{ prompt.tokens }}</p>
         </div>
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden mb-8">
           <div class="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-900 border-b dark:border-gray-700">
