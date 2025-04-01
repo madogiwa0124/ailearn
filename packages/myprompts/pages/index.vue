@@ -11,7 +11,7 @@
       <div v-else-if="error">
         <UAlert
           icon="i-heroicons-exclamation-triangle"
-          color="red"
+          color="error"
           title="An error occurred"
           :description="error.message"
         />
@@ -19,7 +19,7 @@
       <div v-else-if="!prompts?.length">
         <UAlert
           icon="i-heroicons-information-circle"
-          color="gray"
+          color="neutral"
           title="No prompts available"
           description="No prompts were found. Please add prompt files to the .github/prompts directory."
         />

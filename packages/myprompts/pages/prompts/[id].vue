@@ -77,7 +77,7 @@ const copyPrompt = (): void => {
         title: "Copied",
         description: "The prompt has been copied to the clipboard",
         icon: "i-heroicons-clipboard-check",
-        color: "green",
+        color: "success",
       });
     })
     .catch((err: Error) => {
@@ -85,7 +85,7 @@ const copyPrompt = (): void => {
         title: "Copy failed",
         description: err.message,
         icon: "i-heroicons-exclamation-triangle",
-        color: "red",
+        color: "error",
       });
     });
 };
