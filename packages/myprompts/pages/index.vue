@@ -29,12 +29,12 @@
           v-for="prompt in prompts"
           :key="prompt.id"
           :prompt="prompt"
+          :promptPath="promptPath(prompt)"
         />
       </div>
     </UContainer>
   </div>
 </template>
 <script setup lang="ts">
-import { usePrompts } from "~/utils/prompts";
-const { prompts, pending, error } = usePrompts();
+const { prompts, pending, error, promptPath } = usePrompts();
 </script>

@@ -1,3 +1,15 @@
+<script setup lang="ts">
+const colorMode = useColorMode();
+
+const isDark = computed({
+  get() {
+    return colorMode.value === "dark";
+  },
+  set() {
+    colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
+  },
+});
+</script>
 <template>
   <div class="min-h-screen flex flex-col">
     <!-- ヘッダー -->
@@ -5,12 +17,16 @@
       <UContainer class="py-4">
         <div class="flex items-center justify-between">
           <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-            <UIcon name="i-heroicons-document-text" class="text-primary-500" />
             Prompts Viewer
           </NuxtLink>
 
           <div class="flex items-center gap-4">
-            <UColorModeButton />
+            <UButton
+              :icon="isDark ? 'i-lucide-moon' : 'i-lucide-sun'"
+              color="neutral"
+              variant="ghost"
+              @click="isDark = !isDark"
+            />
           </div>
         </div>
       </UContainer>

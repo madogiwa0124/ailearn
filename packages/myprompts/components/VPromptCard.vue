@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import type { Prompt } from "~/utils/prompts";
-defineProps<{ prompt: Prompt }>();
+defineProps<{ prompt: Prompt; promptPath: string }>();
 </script>
 <template>
   <UCard
     :key="prompt.id"
     :ui="{
-      base: 'transition-all duration-200 hover:shadow-lg hover:-translate-y-1',
+      root: 'transition-all duration-200 hover:shadow-lg hover:-translate-y-1',
       body: 'flex-1'
     }"
     class="flex flex-col h-full"
@@ -21,9 +20,11 @@ defineProps<{ prompt: Prompt }>();
 
     <template #footer>
       <div class="flex justify-between items-center">
-        <UBadge color="primary">{{ prompt.id }}</UBadge>
+        <div class="flex items-center gap-2">
+          <UBadge color="primary">{{ prompt.id }}</UBadge>
+        </div>
         <NuxtLink
-          :to="promptPath(prompt)"
+          :to="promptPath"
           class="flex items-center gap-2 text-sm text-gray-500 hover:text-primary-500"
           >View Details</NuxtLink>
       </div>

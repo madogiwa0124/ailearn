@@ -11,15 +11,6 @@
           title="An error occurred"
           :description="error?.message || 'The prompt was not found'"
         />
-        <UButton
-          icon="i-heroicons-arrow-left"
-          color="primary"
-          variant="ghost"
-          to="/"
-          class="mt-4"
-        >
-          Back to Prompts
-        </UButton>
       </div>
       <template v-else>
         <div class="mb-6">
@@ -32,6 +23,8 @@
             >
               Back to Prompts
             </UButton>
+          </div>
+          <div class="flex items-center gap-4 mb-4">
             <UBadge color="primary" size="lg">{{ prompt.id }}</UBadge>
           </div>
           <h1 class="text-3xl font-bold mb-2">{{ prompt.title }}</h1>
@@ -58,12 +51,21 @@
             </div>
           </div>
         </div>
+        <div class="flex items-center gap-4 mb-4">
+          <UButton
+            icon="i-heroicons-arrow-left"
+            color="primary"
+            variant="ghost"
+            to="/"
+          >
+            Back to Prompts
+          </UButton>
+        </div>
       </template>
     </UContainer>
   </div>
 </template>
 <script setup lang="ts">
-import { usePrompt } from "~/utils/prompts";
 const route = useRoute();
 const id = route.params.id as string;
 const toast = useToast();
