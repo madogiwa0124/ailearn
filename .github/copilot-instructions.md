@@ -2,89 +2,38 @@
 
 ## Overview
 
-This document provides guidelines and best practices for using GitHub Copilot in TypeScript projects within a pnpm workspace. By following these instructions, you can ensure that Copilot generates high-quality, maintainable code that adheres to industry standards.
+This document provides guidelines and best practices for using GitHub Copilot in projects. By following these instructions, you can ensure that Copilot generates high-quality, maintainable code that adheres to industry standards.
 
 ## Best Practices
 
 ### 1. Code Style
 
 - **Consistent Formatting**: Ensure that your code is consistently formatted. Use tools like Prettier or Biome to automatically format your code.
-- **Naming Conventions**: Use clear and descriptive names for variables, functions, and classes. Follow camelCase for variables and functions, and PascalCase for classes and interfaces.
+- **Naming Conventions**: Use clear and descriptive names for variables, functions, and classes. Follow the appropriate naming conventions for your programming language.
 - **Comments**: Write meaningful comments to explain complex logic or important sections of your code. Avoid redundant comments.
-- **Arrow Functions**: When defining functions, use arrow functions (`=>` syntax) by default. This preserves the `this` context and results in more concise code. Examples:
-  ```typescript
-  // Recommended
-  const add = (a: number, b: number): number => a + b;
 
-  // For multi-line functions
-  const calculate = (a: number, b: number): number => {
-    const result = a * b;
-    return result + 10;
-  };
+*For language-specific guidelines, see the corresponding files in the `.github/prompts/` directory.*
 
-  // Avoid traditional function declarations when possible
-  // function add(a: number, b: number): number {
-  //   return a + b;
-  // }
-  ```
-
-### 2. TypeScript Specific
-
-- **Strict Type Checking**: Enable strict type checking in your `tsconfig.json` to catch potential errors early.
-- **Type Annotations**: Use type annotations to explicitly define the types of variables, function parameters, and return values.
-- **Avoid `any` Type**: Avoid using the `any` type as it defeats the purpose of TypeScript's type checking. Instead, use proper types, interfaces, or generic types. If the exact type is not known, consider using `unknown` as a safer alternative:
-  ```typescript
-  // Avoid
-  const processData = (data: any): any => {
-    // ...
-  };
-
-  // Prefer
-  interface DataInput {
-    id: number;
-    name: string;
-  }
-
-  interface ProcessedResult {
-    success: boolean;
-    result: string;
-  }
-
-  const processData = (data: DataInput): ProcessedResult => {
-    // ...
-  };
-
-  // If type is truly unknown, use 'unknown' instead of 'any'
-  const parseUnknownData = (data: unknown): void => {
-    // Type checking required before operations
-    if (typeof data === 'string') {
-      // Now TypeScript knows it's a string
-      console.log(data.toLowerCase());
-    }
-  };
-  ```
-- **Interfaces and Types**: Use interfaces and types to define the shape of objects and function signatures.
-
-### 3. Project Structure
+### 2. Project Structure
 
 - **Modularization**: Organize your code into modules to improve maintainability and reusability. Each module should have a clear responsibility.
-- **Directory Structure**: Follow a consistent directory structure. For example, place all source files in a `src` directory and configuration files in a `config` directory.
+- **Directory Structure**: Follow a consistent directory structure that makes sense for your project and programming language.
 
-### 4. Testing (Optional)
+### 3. Testing (Optional)
 
-- **Conditional Testing**: Write tests only when a testing framework (Jest or Vitest) is included in the project's dependencies. Since this is a learning project, testing is not mandatory for all features.
-- **When Testing is Appropriate**: If the project includes Jest or Vitest, consider writing unit tests for critical functions and components to demonstrate testing practices.
+- **Conditional Testing**: Write tests only when a testing framework is included in the project's dependencies. Since this is a learning project, testing is not mandatory for all features.
+- **When Testing is Appropriate**: Consider writing unit tests for critical functions and components to demonstrate testing practices.
 - **Simple Test Coverage**: When tests are included, focus on covering key functionality rather than aiming for comprehensive test coverage.
 
-### 5. Version Control
+### 4. Version Control
 
 - **Commit Messages**: Write clear and concise commit messages that describe the changes made. Follow a consistent commit message format.
 - **Branching Strategy**: Use a branching strategy like GitFlow or GitHub Flow to manage your codebase.
 
-### 6. Documentation
+### 5. Documentation
 
 - **README**: Keep your `README.md` up to date with instructions on how to set up and use the project.
-- **API Documentation**: Document your API endpoints and functions using tools like JSDoc or TypeDoc.
+- **API Documentation**: Document your API endpoints and functions using appropriate documentation tools for your language.
 
 ## Using GitHub Copilot
 
@@ -105,4 +54,4 @@ This document provides guidelines and best practices for using GitHub Copilot in
 
 ## Conclusion
 
-By following these best practices and guidelines, you can effectively use GitHub Copilot to enhance your TypeScript projects within a pnpm workspace. Remember to always review and refine the generated code to ensure it meets your standards and requirements.
+By following these best practices and guidelines, you can effectively use GitHub Copilot to enhance your projects. Remember to always review and refine the generated code to ensure it meets your standards and requirements. For language-specific guidelines, refer to the corresponding files in the `.github/prompts/` directory.
