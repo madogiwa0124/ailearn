@@ -1,0 +1,73 @@
+@layer utils {
+  /* 表示/非表示ユーティリティ */
+  .hidden {
+    display: none !important;
+  }
+  
+  .visible {
+    display: block !important;
+  }
+  
+  .invisible {
+    visibility: hidden !important;
+  }
+
+  /* フレックス表示 */
+  .d-flex {
+    display: flex !important;
+  }
+  
+  .d-inline-flex {
+    display: inline-flex !important;
+  }
+
+  /* インライン表示 */
+  .d-inline {
+    display: inline !important;
+  }
+  
+  .d-inline-block {
+    display: inline-block !important;
+  }
+
+  /* ブロック表示 */
+  .d-block {
+    display: block !important;
+  }
+
+  /* グリッド表示 */
+  .d-grid {
+    display: grid !important;
+  }
+
+  /* レスポンシブ表示/非表示 */
+  @media (max-width: 575.98px) {
+    .hidden-xs {
+      display: none !important;
+    }
+  }
+  
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .hidden-sm {
+      display: none !important;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .hidden-md {
+      display: none !important;
+    }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .hidden-lg {
+      display: none !important;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .hidden-xl {
+      display: none !important;
+    }
+  }
+}

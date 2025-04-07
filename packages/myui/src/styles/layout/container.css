@@ -1,0 +1,50 @@
+@layer layout {
+  /* コンテナクラス - レスポンシブな幅制限を提供 */
+  .container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: var(--spacing-4);
+    padding-left: var(--spacing-4);
+  }
+
+  /* ブレークポイント別のコンテナサイズ */
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .container {
+      max-width: 1320px;
+    }
+  }
+
+  /* フルワイドコンテナ - 横幅100%だが内側にパディングを持つ */
+  .container-fluid {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: var(--spacing-4);
+    padding-left: var(--spacing-4);
+  }
+}

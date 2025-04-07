@@ -8,6 +8,7 @@
     "vue-sample-app": "pnpm -F \"vue-sample-app\"",
     "sample_github_ai_model": "pnpm -F \"sample_github_ai_model\"",
     "myprompts": "pnpm -F \"myprompts\"",
+    "myui": "pnpm -F \"myui\"",
     "lint": "biome lint",
     "format": "biome format"
   },
