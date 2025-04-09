@@ -1,154 +1,154 @@
-@layer components {
-  /* ボタン基本スタイル */
-  .btn {
-    display: inline-block;
-    font-weight: var(--font-weight-medium);
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    border: var(--border-width) solid transparent;
-    padding: var(--btn-padding-y) var(--btn-padding-x);
-    font-size: var(--font-size-base);
-    line-height: 1.5;
-    border-radius: var(--border-radius);
-    transition: var(--transition-base);
-    cursor: pointer;
-  }
+/* ボタン基本スタイル */
+.btn {
+  display: inline-block;
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: var(--border-width) solid transparent;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  border-radius: var(--border-radius);
+  transition: var(--transition-base);
+  cursor: pointer;
+}
 
-  /* ホバー時のスタイル */
-  .btn:hover {
-    text-decoration: none;
-    filter: brightness(95%);
-  }
+/* ホバー時のスタイル */
+.btn:hover {
+  text-decoration: none;
+  filter: brightness(95%);
+}
 
-  /* フォーカス時のスタイル */
-  .btn:focus, .btn:focus-visible {
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  }
+/* フォーカス時のスタイル */
+.btn:focus,
+.btn:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
 
-  /* アクティブ（クリック時）のスタイル */
-  .btn:active {
-    transform: translateY(1px);
-  }
+/* アクティブ（クリック時）のスタイル */
+.btn:active {
+  transform: translateY(1px);
+}
 
-  /* 無効化されたボタン */
-  .btn:disabled, .btn.disabled {
-    opacity: 0.65;
-    pointer-events: none;
-  }
+/* 無効化されたボタン */
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.65;
+  pointer-events: none;
+}
 
-  /* ボタンバリエーション - プライマリ */
-  .btn-primary {
-    color: var(--color-text-light);
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
-  }
+/* ボタンバリエーション - プライマリ */
+.btn-primary {
+  color: var(--color-text-light);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
 
-  .btn-primary:hover {
-    background-color: var(--color-primary-hover);
-    border-color: var(--color-primary-hover);
-  }
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
 
-  .btn-primary:focus {
-    box-shadow: 0 0 0 0.2rem rgba(63, 136, 242, 0.5);
-  }
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(63, 136, 242, 0.5);
+}
 
-  /* ボタンバリエーション - セカンダリ */
-  .btn-secondary {
-    color: var(--color-text-light);
-    background-color: var(--color-secondary);
-    border-color: var(--color-secondary);
-  }
+/* ボタンバリエーション - セカンダリ */
+.btn-secondary {
+  color: var(--color-text-light);
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
 
-  .btn-secondary:hover {
-    background-color: var(--color-secondary-hover);
-    border-color: var(--color-secondary-hover);
-  }
+.btn-secondary:hover {
+  background-color: var(--color-secondary-hover);
+  border-color: var(--color-secondary-hover);
+}
 
-  .btn-secondary:focus {
-    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
-  }
+.btn-secondary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+}
 
-  /* ボタンバリエーション - 成功 */
-  .btn-success {
-    color: var(--color-text-light);
-    background-color: var(--color-success);
-    border-color: var(--color-success);
-  }
+/* ボタンバリエーション - 成功 */
+.btn-success {
+  color: var(--color-text-light);
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}
 
-  .btn-success:hover {
-    background-color: var(--color-success-hover);
-    border-color: var(--color-success-hover);
-  }
+.btn-success:hover {
+  background-color: var(--color-success-hover);
+  border-color: var(--color-success-hover);
+}
 
-  .btn-success:focus {
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
-  }
+.btn-success:focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+}
 
-  /* ボタンバリエーション - 危険 */
-  .btn-danger {
-    color: var(--color-text-light);
-    background-color: var(--color-danger);
-    border-color: var(--color-danger);
-  }
+/* ボタンバリエーション - 危険 */
+.btn-danger {
+  color: var(--color-text-light);
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+}
 
-  .btn-danger:hover {
-    background-color: var(--color-danger-hover);
-    border-color: var(--color-danger-hover);
-  }
+.btn-danger:hover {
+  background-color: var(--color-danger-hover);
+  border-color: var(--color-danger-hover);
+}
 
-  .btn-danger:focus {
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
-  }
+.btn-danger:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+}
 
-  /* ボタンバリエーション - 警告 */
-  .btn-warning {
-    color: var(--color-text);
-    background-color: var(--color-warning);
-    border-color: var(--color-warning);
-  }
+/* ボタンバリエーション - 警告 */
+.btn-warning {
+  color: var(--color-text);
+  background-color: var(--color-warning);
+  border-color: var(--color-warning);
+}
 
-  .btn-warning:hover {
-    background-color: var(--color-warning-hover);
-    border-color: var(--color-warning-hover);
-  }
+.btn-warning:hover {
+  background-color: var(--color-warning-hover);
+  border-color: var(--color-warning-hover);
+}
 
-  .btn-warning:focus {
-    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
-  }
+.btn-warning:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+}
 
-  /* アウトラインボタン */
-  .btn-outline-primary {
-    color: var(--color-primary);
-    background-color: transparent;
-    border-color: var(--color-primary);
-  }
+/* アウトラインボタン */
+.btn-outline-primary {
+  color: var(--color-primary);
+  background-color: transparent;
+  border-color: var(--color-primary);
+}
 
-  .btn-outline-primary:hover {
-    color: var(--color-text-light);
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
-  }
+.btn-outline-primary:hover {
+  color: var(--color-text-light);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
 
-  /* ボタンサイズ - 小 */
-  .btn-sm {
-    padding: var(--btn-padding-y-sm) var(--btn-padding-x-sm);
-    font-size: var(--font-size-sm);
-    border-radius: var(--border-radius-sm);
-  }
+/* ボタンサイズ - 小 */
+.btn-sm {
+  padding: var(--btn-padding-y-sm) var(--btn-padding-x-sm);
+  font-size: var(--font-size-sm);
+  border-radius: var(--border-radius-sm);
+}
 
-  /* ボタンサイズ - 大 */
-  .btn-lg {
-    padding: var(--btn-padding-y-lg) var(--btn-padding-x-lg);
-    font-size: var(--font-size-lg);
-    border-radius: var(--border-radius-lg);
-  }
+/* ボタンサイズ - 大 */
+.btn-lg {
+  padding: var(--btn-padding-y-lg) var(--btn-padding-x-lg);
+  font-size: var(--font-size-lg);
+  border-radius: var(--border-radius-lg);
+}
 
-  /* 幅いっぱいのボタン */
-  .btn-block {
-    display: block;
-    width: 100%;
-  }
+/* 幅いっぱいのボタン */
+.btn-block {
+  display: block;
+  width: 100%;
 }

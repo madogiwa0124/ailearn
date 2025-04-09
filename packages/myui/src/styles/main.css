@@ -1,4 +1,4 @@
-/* 
+/*
  * MyUI Library
  * フレームワークに依存しないUIコンポーネントライブラリ
  */
@@ -7,17 +7,17 @@
 @layer base, layout, components, utils;
 
 /* ベースレイヤー: リセットCSSやデフォルトスタイル */
-@import './base/reset.css' layer(base);
-@import './base/typography.css' layer(base);
-@import './base/variables.css' layer(base);
+@import "./base/reset.css" layer(base);
+@import "./base/variables.css" layer(base);
+@import "./base/base.css" layer(base);
+@import "./base/typography.css" layer(base);
 
 /* レイアウトレイヤー: グリッドやコンテナなどのレイアウト要素 */
-@import './layout/grid.css' layer(layout);
-@import './layout/container.css' layer(layout);
+@import "./layout/grid.css" layer(layout);
+@import "./layout/container.css" layer(layout);
 
 /* コンポーネントレイヤー: UIコンポーネント固有のスタイル */
-@import './components/button.css' layer(components);
+@import "./components/button.css" layer(components);
 
 /* ユーティリティレイヤー: ヘルパークラスなど */
-@import './utils/spacing.css' layer(utils);
-@import './utils/visibility.css' layer(utils);
+@import "./utils/visibility.css" layer(utils);
