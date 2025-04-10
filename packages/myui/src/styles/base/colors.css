@@ -1,0 +1,155 @@
+/* カラー - メインカラー */
+@property --color-primary {
+  syntax: "<color>";
+  initial-value: #3f88f2;
+  inherits: true;
+}
+
+@property --color-primary-hover {
+  syntax: "<color>";
+  initial-value: #1f78f2;
+  inherits: true;
+}
+
+@property --color-secondary {
+  syntax: "<color>";
+  initial-value: #6c757d;
+  inherits: true;
+}
+
+@property --color-secondary-hover {
+  syntax: "<color>";
+  initial-value: #5a6268;
+  inherits: true;
+}
+
+@property --color-success {
+  syntax: "<color>";
+  initial-value: #28a745;
+  inherits: true;
+}
+
+@property --color-success-hover {
+  syntax: "<color>";
+  initial-value: #218838;
+  inherits: true;
+}
+
+@property --color-danger {
+  syntax: "<color>";
+  initial-value: #dc3545;
+  inherits: true;
+}
+
+@property --color-danger-hover {
+  syntax: "<color>";
+  initial-value: #c82333;
+  inherits: true;
+}
+
+@property --color-warning {
+  syntax: "<color>";
+  initial-value: #ffc107;
+  inherits: true;
+}
+
+@property --color-warning-hover {
+  syntax: "<color>";
+  initial-value: #e0a800;
+  inherits: true;
+}
+
+@property --color-info {
+  syntax: "<color>";
+  initial-value: #17a2b8;
+  inherits: true;
+}
+
+@property --color-info-hover {
+  syntax: "<color>";
+  initial-value: #138496;
+  inherits: true;
+}
+
+@property --color-light {
+  syntax: "<color>";
+  initial-value: #f8f9fa;
+  inherits: true;
+}
+
+@property --color-light-hover {
+  syntax: "<color>";
+  initial-value: #e2e6ea;
+  inherits: true;
+}
+
+@property --color-dark {
+  syntax: "<color>";
+  initial-value: #343a40;
+  inherits: true;
+}
+
+@property --color-dark-hover {
+  syntax: "<color>";
+  initial-value: #23272b;
+  inherits: true;
+}
+
+/* テキスト色 */
+@property --color-text {
+  syntax: "<color>";
+  initial-value: #212529;
+  inherits: true;
+}
+
+@property --color-text-muted {
+  syntax: "<color>";
+  initial-value: #6c757d;
+  inherits: true;
+}
+
+@property --color-text-light {
+  syntax: "<color>";
+  initial-value: #f8f9fa;
+  inherits: true;
+}
+
+/* 背景色 */
+@property --color-bg-light {
+  syntax: "<color>";
+  initial-value: #ffffff;
+  inherits: true;
+}
+
+@property --color-bg-dark {
+  syntax: "<color>";
+  initial-value: #212529;
+  inherits: true;
+}
+
+/* シャドウの色 */
+@property --shadow-lg-color {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.175);
+  inherits: true;
+}
+
+@property --shadow-color {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.15);
+  inherits: true;
+}
+
+/* ボーダーの色 */
+@property --color-border {
+  syntax: "<color>";
+  initial-value: #dee2e6;
+  inherits: true;
+}
+
+/* シャドウの色 */
+@property --shadow-sm-color {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.075);
+  inherits: true;
+}

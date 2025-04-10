@@ -1,83 +1,237 @@
+/*
+ * モダンなCSS変数定義
+ * @property API (CSS Houdini)を使用してカスタムプロパティに型情報を付与
+ * https://developer.mozilla.org/ja/docs/Web/CSS/@property
+ */
+
+/* @property定義 - モダンブラウザ向け */
+/* フォント */
+@property --font-family-base {
+  syntax: "*";
+  initial-value: system-ui, -apple-system, sans-serif;
+  inherits: true;
+}
+
+/* ボーダー */
+@property --border-radius-sm {
+  syntax: "<length>";
+  initial-value: 4px;
+  inherits: true;
+}
+
+@property --border-radius {
+  syntax: "<length>";
+  initial-value: 6px;
+  inherits: true;
+}
+
+@property --border-radius-lg {
+  syntax: "<length>";
+  initial-value: 8px;
+  inherits: true;
+}
+
+@property --border-width {
+  syntax: "<length>";
+  initial-value: 1px;
+  inherits: true;
+}
+
+/* スペーシング */
+@property --spacing-0 {
+  syntax: "<length>";
+  initial-value: 0px;
+  inherits: true;
+}
+
+@property --spacing-1 {
+  syntax: "<length>";
+  initial-value: 4px;
+  inherits: true;
+}
+
+@property --spacing-2 {
+  syntax: "<length>";
+  initial-value: 8px;
+  inherits: true;
+}
+
+@property --spacing-3 {
+  syntax: "<length>";
+  initial-value: 12px;
+  inherits: true;
+}
+
+@property --spacing-4 {
+  syntax: "<length>";
+  initial-value: 16px;
+  inherits: true;
+}
+
+@property --spacing-5 {
+  syntax: "<length>";
+  initial-value: 24px;
+  inherits: true;
+}
+
+@property --spacing-6 {
+  syntax: "<length>";
+  initial-value: 32px;
+  inherits: true;
+}
+
+@property --spacing-7 {
+  syntax: "<length>";
+  initial-value: 40px;
+  inherits: true;
+}
+
+@property --spacing-8 {
+  syntax: "<length>";
+  initial-value: 48px;
+  inherits: true;
+}
+
+/* シャドウ - 複雑な値を持つ場合は個別のプロパティに分割 */
+@property --shadow-offset-x {
+  syntax: "<length>";
+  initial-value: 0px;
+  inherits: true;
+}
+
+@property --shadow-sm-offset-y {
+  syntax: "<length>";
+  initial-value: 2px;
+  inherits: true;
+}
+
+@property --shadow-sm-blur {
+  syntax: "<length>";
+  initial-value: 4px;
+  inherits: true;
+}
+
+@property --shadow-offset-y {
+  syntax: "<length>";
+  initial-value: 8px;
+  inherits: true;
+}
+
+@property --shadow-blur {
+  syntax: "<length>";
+  initial-value: 16px;
+  inherits: true;
+}
+
+@property --shadow-lg-offset-y {
+  syntax: "<length>";
+  initial-value: 16px;
+  inherits: true;
+}
+
+@property --shadow-lg-blur {
+  syntax: "<length>";
+  initial-value: 48px;
+  inherits: true;
+}
+
+/* トランジション - 複雑な値を持つため、汎用構文を使用 */
+@property --transition-base {
+  syntax: "*";
+  initial-value: all 0.2s ease-in-out;
+  inherits: true;
+}
+
+/* フォントサイズ */
+@property --font-size-xs {
+  syntax: "<length>";
+  initial-value: 12px; /* 0.75rem × 16px */
+  inherits: true;
+}
+
+@property --font-size-sm {
+  syntax: "<length>";
+  initial-value: 14px; /* 0.875rem × 16px */
+  inherits: true;
+}
+
+@property --font-size-base {
+  syntax: "<length>";
+  initial-value: 16px; /* 1rem × 16px */
+  inherits: true;
+}
+
+@property --font-size-lg {
+  syntax: "<length>";
+  initial-value: 20px; /* 1.25rem × 16px */
+  inherits: true;
+}
+
+@property --font-size-xl {
+  syntax: "<length>";
+  initial-value: 24px; /* 1.5rem × 16px */
+  inherits: true;
+}
+
+/* 行送り */
+@property --line-height-none {
+  syntax: "<number>";
+  initial-value: 1;
+  inherits: true;
+}
+
+@property --line-height-sm {
+  syntax: "<number>";
+  initial-value: 1.25;
+  inherits: true;
+}
+
+@property --line-height-base {
+  syntax: "<number>";
+  initial-value: 1.5;
+  inherits: true;
+}
+
+@property --line-height-lg {
+  syntax: "<number>";
+  initial-value: 1.75;
+  inherits: true;
+}
+
+/* フォントウェイト */
+@property --font-weight-light {
+  syntax: "<integer>";
+  initial-value: 300;
+  inherits: true;
+}
+
+@property --font-weight-normal {
+  syntax: "<integer>";
+  initial-value: 400;
+  inherits: true;
+}
+
+@property --font-weight-medium {
+  syntax: "<integer>";
+  initial-value: 500;
+  inherits: true;
+}
+
+@property --font-weight-bold {
+  syntax: "<integer>";
+  initial-value: 700;
+  inherits: true;
+}
+
 :root {
-  /* フォント */
-  --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  /* カラー */
-  --color-primary: #3f88f2;
-  --color-primary-hover: #1f78f2;
-  --color-secondary: #6c757d;
-  --color-secondary-hover: #5a6268;
-  --color-success: #28a745;
-  --color-success-hover: #218838;
-  --color-danger: #dc3545;
-  --color-danger-hover: #c82333;
-  --color-warning: #ffc107;
-  --color-warning-hover: #e0a800;
-  --color-info: #17a2b8;
-  --color-info-hover: #138496;
-  --color-light: #f8f9fa;
-  --color-light-hover: #e2e6ea;
-  --color-dark: #343a40;
-  --color-dark-hover: #23272b;
-
-  /* テキスト色 */
-  --color-text: #212529;
-  --color-text-muted: #6c757d;
-  --color-text-light: #f8f9fa;
-
-  /* 背景色 */
-  --color-bg-light: #ffffff;
-  --color-bg-dark: #212529;
-
-  /* ボーダー */
-  --color-border: #dee2e6;
-  --border-radius-sm: 0.25rem;
-  --border-radius: 0.375rem;
-  --border-radius-lg: 0.5rem;
-  --border-width: 1px;
-
-  /* スペーシング */
-  --spacing-0: 0;
-  --spacing-1: 0.25rem;
-  --spacing-2: 0.5rem;
-  --spacing-3: 0.75rem;
-  --spacing-4: 1rem;
-  --spacing-5: 1.5rem;
-  --spacing-6: 2rem;
-  --spacing-7: 2.5rem;
-  --spacing-8: 3rem;
-
-  /* シャドウ */
-  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
-
-  /* トランジション */
-  --transition-base: all 0.2s ease-in-out;
-
-  /* フォントサイズ */
+  /*
+    NOTE: @propertyの初期値は計算上独立している必要があり相対値を指定できないのでカスタムプロパティで指定
+    > The initial-value must be computationally independent.
+    > https://www.w3.org/TR/css-properties-values-api-1/#initial-value-descriptor
+  */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.5rem;
-
-  /* 行送り */
-  --line-height-none: 1;
-  --line-height-sm: 1.25;
-  --line-height-base: 1.5;
-  --line-height-lg: 1.75;
-
-  /* フォントウェイト */
-  --font-weight-light: 300;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 700;
-
-  /* ボタンサイズ */
-  --btn-padding-y-sm: 0.25rem;
-  --btn-padding-x-sm: 0.5rem;
-  --btn-padding-y: 0.5rem;
-  --btn-padding-x: 1rem;
-  --btn-padding-y-lg: 0.75rem;
-  --btn-padding-x-lg: 1.5rem;
 }

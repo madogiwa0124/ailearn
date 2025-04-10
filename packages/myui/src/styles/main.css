@@ -8,6 +8,7 @@
 
 /* ベースレイヤー: リセットCSSやデフォルトスタイル */
 @import "./base/reset.css" layer(base);
+@import "./base/colors.css" layer(base);
 @import "./base/variables.css" layer(base);
 @import "./base/base.css" layer(base);
 

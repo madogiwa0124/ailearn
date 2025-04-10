@@ -1,5 +1,12 @@
 /* ボタン基本スタイル */
 .btn {
+  --btn-padding-x: 24px;
+  --btn-padding-y: 8px;
+  --btn-padding-x-sm: 8px;
+  --btn-padding-y-sm: 4px;
+  --btn-padding-x-lg: 24px;
+  --btn-padding-y-lg: 12px;
+
   display: inline-block;
   font-weight: var(--font-weight-medium);
   text-align: center;
