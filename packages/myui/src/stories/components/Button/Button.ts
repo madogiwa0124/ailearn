@@ -7,7 +7,6 @@
 export interface ButtonProps {
   label?: string;
   variant?: "primary" | "secondary" | "success" | "danger" | "warning";
-  size?: "sm" | "md" | "lg" | "";
   outline?: boolean;
   block?: boolean;
   disabled?: boolean;
@@ -24,7 +23,6 @@ export const createButton = (props: ButtonProps = {}): HTMLButtonElement => {
   const {
     label = "Button",
     variant = "primary",
-    size = "",
     outline = false,
     block = false,
     disabled = false,
@@ -44,13 +42,6 @@ export const createButton = (props: ButtonProps = {}): HTMLButtonElement => {
     button.classList.add(`btn-outline-${variant}`);
   } else {
     button.classList.add(`btn-${variant}`);
-  }
-
-  // サイズのクラスを適用
-  if (size === "sm") {
-    button.classList.add("btn-sm");
-  } else if (size === "lg") {
-    button.classList.add("btn-lg");
   }
 
   // ブロック表示のクラスを適用
@@ -85,7 +76,6 @@ export const styleButton = (
 ): HTMLButtonElement => {
   const {
     variant = "primary",
-    size = "",
     outline = false,
     block = false,
     disabled = false,
@@ -102,13 +92,6 @@ export const styleButton = (
     buttonElement.classList.add(`btn-outline-${variant}`);
   } else {
     buttonElement.classList.add(`btn-${variant}`);
-  }
-
-  // サイズのクラスを適用
-  if (size === "sm") {
-    buttonElement.classList.add("btn-sm");
-  } else if (size === "lg") {
-    buttonElement.classList.add("btn-lg");
   }
 
   // ブロック表示のクラスを適用

@@ -23,6 +23,32 @@ Sassは採用せずにPostCSS + CSSでFLOCSSベースのディレクトリ構成
 
 ## 各ディレクトリの役割と基本ルール
 
+### main.css
+
+FLOCSSと同じ、プロジェクト全体のスタイルを定義するメインのCSSファイル。
+カスケーディングレイヤーの概念を利用して、CSSのレイヤーを定義し、各レイヤーごとにスタイルをインポートする。
+
+```css
+@layer base, layout, components, utils;
+
+/* ベースレイヤー: リセットCSSやデフォルトスタイル */
+@import "./foundation/reset.css" layer(base);
+@import "./foundation/base.css" layer(base);
+
+/* レイアウトレイヤー: グリッドやコンテナなどのレイアウト要素 */
+@import "./layout/grid.css" layer(layout);
+@import "./layout/container.css" layer(layout);
+
+/* コンポーネントレイヤー: UIコンポーネント固有のスタイル */
+@import "./components/button.css" layer(components);
+@import "./components/heading.css" layer(components);
+@import "./components/link.css" layer(components);
+@import "./components/paragraph.css" layer(components);
+
+/* ユーティリティレイヤー: ヘルパークラスなど */
+@import "./utils/visibility.css" layer(utils);
+```
+
 ### Foundation
 
 FLOCSSと同じ、デフォルトスタイルや変数管理等を行うディレクトリ。
@@ -31,7 +57,7 @@ FLOCSSと同じ、デフォルトスタイルや変数管理等を行うディ�
 > Reset.cssやNormalize.cssなどを用いたブラウザのデフォルトスタイルの初期化や、プロジェクトにおける基本的なスタイルを定義します。 ページの下地としての全体の背景や、基本的なタイポグラフィなどが該当します。
 > https://github.com/hiloki/flocss?tab=readme-ov-file#foundation
 
-Foundationで定義したスタイルは`application.css`にインポートされグローバルに適用する。
+Foundationで定義したスタイルは`main.css`にインポートされグローバルに適用する。
 
 ```css
 /* application.css */
@@ -54,9 +80,12 @@ Foundationで定義したスタイルは`application.css`にインポートさ�
 
 FLOCSSではプレフィクスとして`l-`をつけるルールになっているがLayout - Object間の移動を想定して、そこまで厳密にプレフィクスはつけずサービス固有のプレフィクス`servicename-`を付ける程度にする。
 
+また`@scope`を利用してCSSのスコープ化を行う。
+
 ```css
-.service-header { ... }
-.service-footer { ... }
+@scope .service-header {
+  ...
+}
 ```
 
 ### Component
@@ -72,8 +101,12 @@ Componentに配置するかどうかの目安として異なる2つ以上の機�
 
 FLOCSSではプレフィクスとして`c-`をつけるルールになっているがLayout - Object間の移動を想定して、そこまで厳密にプレフィクスはつけずサービス固有のプレフィクス`servicename-`を付ける程度にする。
 
+また`@scope`を利用してCSSのスコープ化を行う。
+
 ```css
-.service-button { ... }
+@scope .service-button {
+  ...
+}
 ```
 
 特定な機能内で再利用されるものはComponentではなく後述のProjectに定義する。
@@ -98,9 +131,11 @@ FLOCSSではプレフィクスとして`p-`をつけるルールになってい�
 
 グローバルに影響しないスコープ内のCSSに関してはBEMライクの記法で記述するぐらいのゆるいルールで管理する。
 
+また`@scope`を利用してCSSのスコープ化を行う。
+
 ```css
 /* project/books/index.css */
-.service-books-index {
+@scope .service-books-index {
   .books-title { ... }
   .books-card { ... }
 }
@@ -108,7 +143,7 @@ FLOCSSではプレフィクスとして`p-`をつけるルールになってい�
 
 ```css
 /* project/books/show.css */
-.service-books-show {
+@scope .service-books-show {
   .books-card { ... }
 }
 ```
@@ -117,7 +152,9 @@ FLOCSSではプレフィクスとして`p-`をつけるルールになってい�
 
 ```css
 /* project/books/card.css */
-.service-books-card { ... }
+@scope .service-books-card {
+  ...
+}
 ```
 
 ### Util

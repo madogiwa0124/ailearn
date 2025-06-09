@@ -10,12 +10,6 @@
 @import "./shadow.css";
 @import "./typography.css";
 
-@property --transition-base {
-  syntax: "*";
-  initial-value: all 0.2s ease-in-out;
-  inherits: true;
-}
-
 /* フォントサイズ */
 :root {
   /*

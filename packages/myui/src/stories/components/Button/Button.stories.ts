@@ -12,9 +12,6 @@ const meta: Meta<ButtonProps> = {
         options: ["primary", "secondary", "success", "danger", "warning"],
       },
     },
-    size: {
-      control: { type: "select", options: ["", "sm", "lg"] },
-    },
     outline: { control: "boolean" },
     block: { control: "boolean" },
     disabled: { control: "boolean" },
@@ -55,7 +52,6 @@ export const Default: Story = {
   args: {
     label: "Button",
     variant: "primary",
-    size: "",
     outline: false,
     block: false,
     disabled: false,
@@ -115,34 +111,6 @@ export const OutlineButtons: Story = {
         label: variant || "",
         variant,
         outline: true,
-      });
-      container.appendChild(button);
-    });
-
-    return container;
-  },
-};
-
-/**
- * 異なるサイズのボタンを表示するストーリー
- */
-export const Sizes: Story = {
-  render: () => {
-    const container = document.createElement("div");
-    container.className = "d-flex align-items-center";
-    container.style.gap = "10px";
-
-    const sizes: Array<{ name: ButtonProps["size"]; label: string }> = [
-      { name: "sm", label: "Small" },
-      { name: "", label: "Default" },
-      { name: "lg", label: "Large" },
-    ];
-
-    sizes.forEach((size) => {
-      const button = createButton({
-        label: size.label,
-        variant: "primary",
-        size: size.name,
       });
       container.appendChild(button);
     });
