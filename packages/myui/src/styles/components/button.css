@@ -41,7 +41,6 @@
     border-color: var(--color-primary);
 
     &:hover {
-      background-color: var(--color-primary-hover);
       border-color: var(--color-primary-hover);
     }
 
@@ -50,14 +49,12 @@
     }
   }
 
-  /* ボタンバリエーション - セカンダリ */
   &.btn-secondary {
     color: var(--color-text-light);
     background-color: var(--color-secondary);
     border-color: var(--color-secondary);
 
     &:hover {
-      background-color: var(--color-secondary-hover);
       border-color: var(--color-secondary-hover);
     }
 
@@ -66,51 +63,17 @@
     }
   }
 
-  /* ボタンバリエーション - 成功 */
-  &.btn-success {
+  &.btn-tertiary {
     color: var(--color-text-light);
-    background-color: var(--color-success);
-    border-color: var(--color-success);
+    background-color: var(--color-tertiary);
+    border-color: var(--color-tertiary);
 
     &:hover {
-      background-color: var(--color-success-hover);
-      border-color: var(--color-success-hover);
+      border-color: var(--color-tertiary-hover);
     }
 
     &:focus {
       box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
-    }
-  }
-
-  /* ボタンバリエーション - 危険 */
-  &.btn-danger {
-    color: var(--color-text-light);
-    background-color: var(--color-danger);
-    border-color: var(--color-danger);
-
-    &:hover {
-      background-color: var(--color-danger-hover);
-      border-color: var(--color-danger-hover);
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
-    }
-  }
-
-  /* ボタンバリエーション - 警告 */
-  &.btn-warning {
-    color: var(--color-text);
-    background-color: var(--color-warning);
-    border-color: var(--color-warning);
-
-    &:hover {
-      background-color: var(--color-warning-hover);
-      border-color: var(--color-warning-hover);
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
     }
   }
 

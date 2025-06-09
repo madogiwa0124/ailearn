@@ -5,33 +5,15 @@
   inherits: true;
 }
 
-@property --color-primary-hover {
-  syntax: "<color>";
-  initial-value: #1f78f2;
-  inherits: true;
-}
-
 @property --color-secondary {
   syntax: "<color>";
   initial-value: #6c757d;
   inherits: true;
 }
 
-@property --color-secondary-hover {
-  syntax: "<color>";
-  initial-value: #5a6268;
-  inherits: true;
-}
-
-@property --color-success {
+@property --color-tertiary {
   syntax: "<color>";
   initial-value: #28a745;
-  inherits: true;
-}
-
-@property --color-success-hover {
-  syntax: "<color>";
-  initial-value: #218838;
   inherits: true;
 }
 
@@ -41,33 +23,9 @@
   inherits: true;
 }
 
-@property --color-danger-hover {
-  syntax: "<color>";
-  initial-value: #c82333;
-  inherits: true;
-}
-
 @property --color-warning {
   syntax: "<color>";
   initial-value: #ffc107;
-  inherits: true;
-}
-
-@property --color-warning-hover {
-  syntax: "<color>";
-  initial-value: #e0a800;
-  inherits: true;
-}
-
-@property --color-info {
-  syntax: "<color>";
-  initial-value: #17a2b8;
-  inherits: true;
-}
-
-@property --color-info-hover {
-  syntax: "<color>";
-  initial-value: #138496;
   inherits: true;
 }
 
@@ -77,21 +35,9 @@
   inherits: true;
 }
 
-@property --color-light-hover {
-  syntax: "<color>";
-  initial-value: #e2e6ea;
-  inherits: true;
-}
-
 @property --color-dark {
   syntax: "<color>";
   initial-value: #343a40;
-  inherits: true;
-}
-
-@property --color-dark-hover {
-  syntax: "<color>";
-  initial-value: #23272b;
   inherits: true;
 }
 

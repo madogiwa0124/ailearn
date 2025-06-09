@@ -70,9 +70,7 @@ export const Variants: Story = {
     const variants: Array<ButtonProps["variant"]> = [
       "primary",
       "secondary",
-      "success",
-      "danger",
-      "warning",
+      "tertiary",
     ];
 
     variants.forEach((variant) => {
@@ -101,9 +99,7 @@ export const OutlineButtons: Story = {
     const variants: Array<ButtonProps["variant"]> = [
       "primary",
       "secondary",
-      "success",
-      "danger",
-      "warning",
+      "tertiary",
     ];
 
     variants.forEach((variant) => {

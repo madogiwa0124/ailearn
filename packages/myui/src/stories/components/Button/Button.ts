@@ -6,7 +6,7 @@
 // ボタンのプロパティの型定義
 export interface ButtonProps {
   label?: string;
-  variant?: "primary" | "secondary" | "success" | "danger" | "warning";
+  variant?: "primary" | "secondary" | "tertiary";
   outline?: boolean;
   block?: boolean;
   disabled?: boolean;
