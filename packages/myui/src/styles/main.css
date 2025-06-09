@@ -7,10 +7,8 @@
 @layer base, layout, components, utils;
 
 /* ベースレイヤー: リセットCSSやデフォルトスタイル */
-@import "./base/reset.css" layer(base);
-@import "./base/colors.css" layer(base);
-@import "./base/variables.css" layer(base);
-@import "./base/base.css" layer(base);
+@import "./foundation/reset.css" layer(base);
+@import "./foundation/base.css" layer(base);
 
 /* レイアウトレイヤー: グリッドやコンテナなどのレイアウト要素 */
 @import "./layout/grid.css" layer(layout);

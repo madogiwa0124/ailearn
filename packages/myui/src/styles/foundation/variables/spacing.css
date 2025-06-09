@@ -1,0 +1,53 @@
+@property --spacing-0 {
+  syntax: "<length>";
+  initial-value: 0px;
+  inherits: true;
+}
+
+@property --spacing-1 {
+  syntax: "<length>";
+  initial-value: 4px;
+  inherits: true;
+}
+
+@property --spacing-2 {
+  syntax: "<length>";
+  initial-value: 8px;
+  inherits: true;
+}
+
+@property --spacing-3 {
+  syntax: "<length>";
+  initial-value: 12px;
+  inherits: true;
+}
+
+@property --spacing-4 {
+  syntax: "<length>";
+  initial-value: 16px;
+  inherits: true;
+}
+
+@property --spacing-5 {
+  syntax: "<length>";
+  initial-value: 24px;
+  inherits: true;
+}
+
+@property --spacing-6 {
+  syntax: "<length>";
+  initial-value: 32px;
+  inherits: true;
+}
+
+@property --spacing-7 {
+  syntax: "<length>";
+  initial-value: 40px;
+  inherits: true;
+}
+
+@property --spacing-8 {
+  syntax: "<length>";
+  initial-value: 48px;
+  inherits: true;
+}

@@ -1,0 +1,41 @@
+@property --shadow-offset-x {
+  syntax: "<length>";
+  initial-value: 0px;
+  inherits: true;
+}
+
+@property --shadow-sm-offset-y {
+  syntax: "<length>";
+  initial-value: 2px;
+  inherits: true;
+}
+
+@property --shadow-sm-blur {
+  syntax: "<length>";
+  initial-value: 4px;
+  inherits: true;
+}
+
+@property --shadow-offset-y {
+  syntax: "<length>";
+  initial-value: 8px;
+  inherits: true;
+}
+
+@property --shadow-blur {
+  syntax: "<length>";
+  initial-value: 16px;
+  inherits: true;
+}
+
+@property --shadow-lg-offset-y {
+  syntax: "<length>";
+  initial-value: 16px;
+  inherits: true;
+}
+
+@property --shadow-lg-blur {
+  syntax: "<length>";
+  initial-value: 48px;
+  inherits: true;
+}

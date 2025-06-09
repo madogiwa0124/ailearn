@@ -1,0 +1,85 @@
+@property --font-family-base {
+  syntax: "*";
+  initial-value: system-ui, -apple-system, sans-serif;
+  inherits: true;
+}
+
+@property --font-size-xs {
+  syntax: "<length>";
+  initial-value: 12px; /* 0.75rem × 16px */
+  inherits: true;
+}
+
+@property --font-size-sm {
+  syntax: "<length>";
+  initial-value: 14px; /* 0.875rem × 16px */
+  inherits: true;
+}
+
+@property --font-size-base {
+  syntax: "<length>";
+  initial-value: 16px; /* 1rem × 16px */
+  inherits: true;
+}
+
+@property --font-size-lg {
+  syntax: "<length>";
+  initial-value: 20px; /* 1.25rem × 16px */
+  inherits: true;
+}
+
+@property --font-size-xl {
+  syntax: "<length>";
+  initial-value: 24px; /* 1.5rem × 16px */
+  inherits: true;
+}
+
+/* 行送り */
+@property --line-height-none {
+  syntax: "<number>";
+  initial-value: 1;
+  inherits: true;
+}
+
+@property --line-height-sm {
+  syntax: "<number>";
+  initial-value: 1.25;
+  inherits: true;
+}
+
+@property --line-height-base {
+  syntax: "<number>";
+  initial-value: 1.5;
+  inherits: true;
+}
+
+@property --line-height-lg {
+  syntax: "<number>";
+  initial-value: 1.75;
+  inherits: true;
+}
+
+/* フォントウェイト */
+@property --font-weight-light {
+  syntax: "<integer>";
+  initial-value: 300;
+  inherits: true;
+}
+
+@property --font-weight-normal {
+  syntax: "<integer>";
+  initial-value: 400;
+  inherits: true;
+}
+
+@property --font-weight-medium {
+  syntax: "<integer>";
+  initial-value: 500;
+  inherits: true;
+}
+
+@property --font-weight-bold {
+  syntax: "<integer>";
+  initial-value: 700;
+  inherits: true;
+}

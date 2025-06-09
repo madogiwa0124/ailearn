@@ -1,0 +1,31 @@
+/*
+ * モダンなCSS変数定義
+ * @property API (CSS Houdini)を使用してカスタムプロパティに型情報を付与
+ * https://developer.mozilla.org/ja/docs/Web/CSS/@property
+ */
+
+@import "./colors.css";
+@import "./spacing.css";
+@import "./border.css";
+@import "./shadow.css";
+@import "./typography.css";
+
+@property --transition-base {
+  syntax: "*";
+  initial-value: all 0.2s ease-in-out;
+  inherits: true;
+}
+
+/* フォントサイズ */
+:root {
+  /*
+    NOTE: @propertyの初期値は計算上独立している必要があり相対値を指定できないのでカスタムプロパティで指定
+    > The initial-value must be computationally independent.
+    > https://www.w3.org/TR/css-properties-values-api-1/#initial-value-descriptor
+  */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+}

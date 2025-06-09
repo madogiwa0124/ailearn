@@ -1,0 +1,23 @@
+@property --border-radius-sm {
+  syntax: "<length>";
+  initial-value: 4px;
+  inherits: true;
+}
+
+@property --border-radius {
+  syntax: "<length>";
+  initial-value: 6px;
+  inherits: true;
+}
+
+@property --border-radius-lg {
+  syntax: "<length>";
+  initial-value: 8px;
+  inherits: true;
+}
+
+@property --border-width {
+  syntax: "<length>";
+  initial-value: 1px;
+  inherits: true;
+}
