@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/html";
-import { createButton, ButtonProps } from "./Button";
+import type { Meta, StoryObj } from "@storybook/html";
+import { createButton, type ButtonProps } from "./Button";
 
 const meta: Meta<ButtonProps> = {
   title: "Components/Button",
@@ -73,7 +73,7 @@ export const Variants: Story = {
       "tertiary",
     ];
 
-    variants.forEach((variant) => {
+    for (const variant of variants) {
       const button = createButton({
         label: variant
           ? variant.charAt(0).toUpperCase() + variant.slice(1)
@@ -81,7 +81,7 @@ export const Variants: Story = {
         variant,
       });
       container.appendChild(button);
-    });
+    }
 
     return container;
   },
@@ -102,14 +102,14 @@ export const OutlineButtons: Story = {
       "tertiary",
     ];
 
-    variants.forEach((variant) => {
+    for (const variant of variants) {
       const button = createButton({
         label: variant || "",
         variant,
         outline: true,
       });
       container.appendChild(button);
-    });
+    }
 
     return container;
   },

@@ -1,19 +1,19 @@
 /* カラー - メインカラー */
 @property --color-primary {
   syntax: "<color>";
-  initial-value: #3f88f2;
+  initial-value: #00317a;
   inherits: true;
 }
 
 @property --color-secondary {
   syntax: "<color>";
-  initial-value: #6c757d;
+  initial-value: #004bbd;
   inherits: true;
 }
 
 @property --color-tertiary {
   syntax: "<color>";
-  initial-value: #28a745;
+  initial-value: #006aff;
   inherits: true;
 }
 

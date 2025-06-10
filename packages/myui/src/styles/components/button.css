@@ -1,97 +1,110 @@
 /* ボタン基本スタイル */
-@scope (.btn) {
-  --btn-padding-x: 24px;
-  --btn-padding-y: 8px;
+.btn {
+  /* Color */
+  --btn-color-primary: var(--color-primary);
+  --btn-color-secondary: var(--color-secondary);
+  --btn-color-tertiary: var(--color-tertiary);
+  --btn-text-color-primary: var(--color-text-light);
+  --btn-text-color-secondary: var(--color-text-light);
+  --btn-text-color-tertiary: var(--color-text-light);
+  --btn-darker-brightness: 90%;
+  --btn-lighter-brightness: 115%;
+  --btn-disabled-opacity: 0.65;
+
+  /* Spacing */
+  --btn-padding-x: var(--spacing-6);
+  --btn-padding-y: var(--spacing-2);
+
+  /* Border */
+  --btn-border-radius: var(--border-radius);
+  --btn-border-width: var(--border-width);
+
+  /* Transform */
+  --btn-active-transform: translateY(1px);
 
   display: inline-block;
   white-space: nowrap;
   user-select: none;
-  border: var(--border-width) solid transparent;
+  border: var(--btn-border-width) solid transparent;
   padding: var(--btn-padding-y) var(--btn-padding-x);
-  border-radius: var(--border-radius);
+  border-radius: var(--btn-border-radius);
   cursor: pointer;
 
-  &:hover {
-    text-decoration: none;
-    filter: brightness(95%);
-  }
-
+  &:hover,
   &:focus,
   &:focus-visible {
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    text-decoration: none;
+    transition: filter 0.2s ease;
+    filter: brightness(var(--btn-lighter-brightness));
   }
 
   &:active {
-    transform: translateY(1px);
+    transform: var(--btn-active-transform);
   }
 
   &:disabled {
-    opacity: 0.65;
+    opacity: var(--btn-disabled-opacity);
     cursor: not-allowed;
+    transform: initial;
 
     &:hover {
       filter: none !important;
     }
   }
 
-  &.btn-primary {
-    color: var(--color-text-light);
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
-
-    &:hover {
-      border-color: var(--color-primary-hover);
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 0.2rem rgba(63, 136, 242, 0.5);
-    }
+  &.--primary {
+    color: var(--btn-text-color-primary);
+    background-color: var(--btn-color-primary);
+    border-color: var(--btn-color-primary);
   }
 
-  &.btn-secondary {
-    color: var(--color-text-light);
-    background-color: var(--color-secondary);
-    border-color: var(--color-secondary);
-
-    &:hover {
-      border-color: var(--color-secondary-hover);
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
-    }
+  &.--secondary {
+    color: var(--btn-text-color-secondary);
+    background-color: var(--btn-color-secondary);
+    border-color: var(--btn-color-secondary);
   }
 
-  &.btn-tertiary {
-    color: var(--color-text-light);
-    background-color: var(--color-tertiary);
-    border-color: var(--color-tertiary);
-
-    &:hover {
-      border-color: var(--color-tertiary-hover);
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
-    }
+  &.--tertiary {
+    color: var(--btn-text-color-tertiary);
+    background-color: var(--btn-color-tertiary);
+    border-color: var(--btn-color-tertiary);
   }
 
-  /* アウトラインボタン */
-  &.btn-outline-primary {
-    color: var(--color-primary);
+  &.--outline {
     background-color: transparent;
-    border-color: var(--color-primary);
 
-    &:hover {
-      color: var(--color-text-light);
-      background-color: var(--color-primary);
-      border-color: var(--color-primary);
+    &.--primary {
+      color: var(--btn-color-primary);
+      border-color: var(--btn-color-primary);
+
+      &:hover {
+        color: var(--btn-text-color-primary);
+        background-color: var(--btn-color-primary);
+      }
+    }
+
+    &.--secondary {
+      color: var(--btn-color-secondary);
+      border-color: var(--btn-color-secondary);
+
+      &:hover {
+        color: var(--btn-text-color-secondary);
+        background-color: var(--btn-color-secondary);
+      }
+    }
+
+    &.--tertiary {
+      color: var(--btn-color-tertiary);
+      border-color: var(--btn-color-tertiary);
+
+      &:hover {
+        color: var(--btn-text-color-tertiary);
+        background-color: var(--btn-color-tertiary);
+      }
     }
   }
 
-  /* 幅いっぱいのボタン */
-  &.btn-block {
+  &.--block {
     display: block;
     width: 100%;
   }

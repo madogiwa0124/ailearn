@@ -38,16 +38,10 @@ export const createButton = (props: ButtonProps = {}): HTMLButtonElement => {
   button.classList.add("btn");
 
   // バリアントのクラスを適用
-  if (outline) {
-    button.classList.add(`btn-outline-${variant}`);
-  } else {
-    button.classList.add(`btn-${variant}`);
-  }
-
+  if (outline) button.classList.add("--outline");
+  if (variant) button.classList.add(`--${variant}`);
   // ブロック表示のクラスを適用
-  if (block) {
-    button.classList.add("btn-block");
-  }
+  if (block) button.classList.add("--block");
 
   // 無効状態を設定
   if (disabled) {
@@ -89,14 +83,14 @@ export const styleButton = (
 
   // バリアントのクラスを適用
   if (outline) {
-    buttonElement.classList.add(`btn-outline-${variant}`);
+    buttonElement.classList.add("--outline");
   } else {
-    buttonElement.classList.add(`btn-${variant}`);
+    buttonElement.classList.add(`--${variant}`);
   }
 
   // ブロック表示のクラスを適用
   if (block) {
-    buttonElement.classList.add("btn-block");
+    buttonElement.classList.add("--block");
   }
 
   // 無効状態を設定
