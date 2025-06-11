@@ -7,49 +7,60 @@
   --btn-text-color-primary: var(--color-text-light);
   --btn-text-color-secondary: var(--color-text-light);
   --btn-text-color-tertiary: var(--color-text-light);
+  --btn-shadow-color: var(--shadow-color);
   --btn-darker-brightness: 90%;
-  --btn-lighter-brightness: 115%;
+  --btn-lighter-brightness: 120%;
   --btn-disabled-opacity: 0.65;
 
   /* Spacing */
   --btn-padding-x: var(--spacing-6);
   --btn-padding-y: var(--spacing-2);
 
+  /* Shadow */
+  --btn-shadow-offset-x: 0px;
+  --btn-shadow-offset-y: 2px;
+  --btn-shadow-blur: 2px;
+
   /* Border */
   --btn-border-radius: var(--border-radius);
+  --btn-rounded-border-radius: var(--border-radius-full);
   --btn-border-width: var(--border-width);
 
   /* Transform */
   --btn-active-transform: translateY(1px);
 
-  display: inline-block;
+  display: inline-flex;
   white-space: nowrap;
   user-select: none;
   border: var(--btn-border-width) solid transparent;
   padding: var(--btn-padding-y) var(--btn-padding-x);
   border-radius: var(--btn-border-radius);
   cursor: pointer;
+  box-shadow: var(--btn-shadow-offset-x) var(--btn-shadow-offset-y)
+    var(--btn-shadow-blur) var(--btn-shadow-color);
 
   &:hover,
   &:focus,
   &:focus-visible {
     text-decoration: none;
-    transition: filter 0.2s ease;
     filter: brightness(var(--btn-lighter-brightness));
+    transition: filter 0.2s ease;
+
+    &:disabled {
+      filter: none;
+    }
   }
 
   &:active {
     transform: var(--btn-active-transform);
+    box-shadow: initial;
   }
 
   &:disabled {
     opacity: var(--btn-disabled-opacity);
     cursor: not-allowed;
+    pointer-events: none;
     transform: initial;
-
-    &:hover {
-      filter: none !important;
-    }
   }
 
   &.--primary {
@@ -72,6 +83,7 @@
 
   &.--outline {
     background-color: transparent;
+    transition: background-color 0.2s ease;
 
     &.--primary {
       color: var(--btn-color-primary);
@@ -107,5 +119,28 @@
   &.--block {
     display: block;
     width: 100%;
+  }
+
+  &.--rounded {
+    border-radius: var(--btn-rounded-border-radius);
+  }
+
+  &.--icon-only {
+    padding: var(--btn-padding-y);
+  }
+
+  &:has(.icon),
+  &:has(svg) {
+    gap: var(--spacing-1);
+    align-items: center;
+    justify-content: center;
+
+    .icon,
+    svg {
+      line-height: 1em;
+      width: 1em;
+      height: 1em;
+      flex-shrink: 0;
+    }
   }
 }

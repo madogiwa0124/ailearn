@@ -16,6 +16,12 @@
   inherits: true;
 }
 
+@property --border-radius-full {
+  syntax: "<length>";
+  initial-value: 9999px;
+  inherits: true;
+}
+
 @property --border-width {
   syntax: "<length>";
   initial-value: 1px;

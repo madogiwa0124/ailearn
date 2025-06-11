@@ -134,6 +134,27 @@ export const BlockButton: Story = {
   },
 };
 
+export const RoundedButton: Story = {
+  render: () => {
+    const container = document.createElement("div");
+    const button = createButton({
+      label: "Block Button",
+      variant: "primary",
+      rounded: true,
+    });
+    container.appendChild(button);
+    const outlineButton = createButton({
+      label: "Block Button",
+      variant: "primary",
+      outline: true,
+      rounded: true,
+    });
+    container.appendChild(outlineButton);
+
+    return container;
+  },
+};
+
 /**
  * 無効化されたボタンを表示するストーリー
  */
@@ -156,6 +177,53 @@ export const DisabledButton: Story = {
 
     container.appendChild(normalButton);
     container.appendChild(disabledButton);
+
+    return container;
+  },
+};
+
+export const WithIconButton: Story = {
+  render: () => {
+    const container = document.createElement("div");
+    container.className = "d-flex";
+    container.style.gap = "10px";
+
+    const buttonWithIcon = createButton({
+      label: "Button with Icon",
+      variant: "primary",
+    });
+
+    // アイコンを追加
+    const icon = document.createElement("span");
+    icon.className = "icon"; // アイコンのクラス名
+    icon.textContent = "+"; // ここでは簡単なテキストアイコンを使用
+    buttonWithIcon.prepend(icon);
+
+    container.appendChild(buttonWithIcon);
+
+    return container;
+  },
+};
+
+export const IconOnlyButton: Story = {
+  render: () => {
+    const container = document.createElement("div");
+    container.className = "d-flex";
+    container.style.gap = "10px";
+
+    const buttonWithIcon = createButton({
+      label: "",
+      variant: "primary",
+      iconOnly: true,
+    });
+
+    // アイコンを追加
+    const icon = document.createElement("span");
+    icon.className = "icon"; // アイコンのクラス名
+    icon.textContent = "+"; // ここでは簡単なテキストアイコンを使用
+    buttonWithIcon.prepend(icon);
+
+    container.appendChild(buttonWithIcon);
 
     return container;
   },

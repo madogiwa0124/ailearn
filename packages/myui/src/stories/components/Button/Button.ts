@@ -10,6 +10,8 @@ export interface ButtonProps {
   outline?: boolean;
   block?: boolean;
   disabled?: boolean;
+  rounded?: boolean;
+  iconOnly?: boolean;
   onClick?: (event: MouseEvent) => void;
 }
 
@@ -26,6 +28,7 @@ export const createButton = (props: ButtonProps = {}): HTMLButtonElement => {
     outline = false,
     block = false,
     disabled = false,
+    iconOnly = false,
     onClick = null,
   } = props;
 
@@ -42,6 +45,10 @@ export const createButton = (props: ButtonProps = {}): HTMLButtonElement => {
   if (variant) button.classList.add(`--${variant}`);
   // ブロック表示のクラスを適用
   if (block) button.classList.add("--block");
+  // ラウンドスタイルのクラスを適用
+  if (props.rounded) button.classList.add("--rounded");
+  // アイコンのみのスタイルを適用
+  if (iconOnly) button.classList.add("--icon-only");
 
   // 無効状態を設定
   if (disabled) {
@@ -55,49 +62,4 @@ export const createButton = (props: ButtonProps = {}): HTMLButtonElement => {
   }
 
   return button;
-};
-
-/**
- * ボタンラッパーコンポーネント - スタイリングのみを提供し、既存のボタンに適用するためのもの
- *
- * @param buttonElement - 対象のボタン要素
- * @param props - スタイリングのプロパティ
- * @returns スタイル適用済みのボタン要素
- */
-export const styleButton = (
-  buttonElement: HTMLButtonElement,
-  props: ButtonProps = {},
-): HTMLButtonElement => {
-  const {
-    variant = "primary",
-    outline = false,
-    block = false,
-    disabled = false,
-  } = props;
-
-  // 既存のクラスをクリア
-  buttonElement.className = "";
-
-  // 基本クラスを適用
-  buttonElement.classList.add("btn");
-
-  // バリアントのクラスを適用
-  if (outline) {
-    buttonElement.classList.add("--outline");
-  } else {
-    buttonElement.classList.add(`--${variant}`);
-  }
-
-  // ブロック表示のクラスを適用
-  if (block) {
-    buttonElement.classList.add("--block");
-  }
-
-  // 無効状態を設定
-  if (disabled) {
-    buttonElement.disabled = true;
-    buttonElement.classList.add("disabled");
-  }
-
-  return buttonElement;
 };
