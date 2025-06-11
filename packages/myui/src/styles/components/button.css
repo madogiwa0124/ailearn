@@ -66,23 +66,19 @@
   &.--primary {
     color: var(--btn-text-color-primary);
     background-color: var(--btn-color-primary);
-    border-color: var(--btn-color-primary);
   }
 
   &.--secondary {
     color: var(--btn-text-color-secondary);
     background-color: var(--btn-color-secondary);
-    border-color: var(--btn-color-secondary);
   }
 
   &.--tertiary {
     color: var(--btn-text-color-tertiary);
     background-color: var(--btn-color-tertiary);
-    border-color: var(--btn-color-tertiary);
   }
 
   &.--outline {
-    background-color: transparent;
     transition: background-color 0.2s ease;
 
     &.--primary {
