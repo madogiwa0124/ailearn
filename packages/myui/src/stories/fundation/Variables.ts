@@ -13,26 +13,13 @@ type DesignToken = {
   [key in keyof typeof PREFIX_STYLE_MAPPING]?: Property[];
 };
 
-type Property = {
+export type Property = {
   name: string;
   value: string;
   styleType: keyof typeof PREFIX_STYLE_MAPPING | undefined;
 };
 
-export const createVariableElements = (element: HTMLElement): HTMLElement => {
-  const container = document.createElement("div");
-  container.classList.add("variables-container");
-  const properties = customProperties(element);
-  const tokens = designTokens(properties);
-  console.log("Design Tokens:", tokens);
-  console.log("Custom Color:", tokens.color);
-  for (const property of tokens.color ?? []) {
-    createAndAppendElements(property, createColorElement, container);
-  }
-  return container;
-};
-
-const customProperties = (element: HTMLElement): Property[] => {
+export const customProperties = (element: HTMLElement): Property[] => {
   const htmlStyle = element?.computedStyleMap() ?? [];
   const entries = Array.from(htmlStyle.entries());
   const properties = entries.filter(([propertyName, _]) =>
@@ -52,11 +39,19 @@ export const designTokens = (properties: Property[]): DesignToken => {
   return result as DesignToken;
 };
 
-const createColorElement = (property: Property): HTMLElement => {
+export const createColorElement = (property: Property): HTMLElement => {
   const colorElement = document.createElement("div");
+  const text = document.createElement("span");
+  text.textContent = property.name;
+  // text.style.mixBlendMode = "difference";
+  text.style.color = property.value;
+  text.style.filter = "invert(100%) grayscale(100%) contrast(100)";
   colorElement.classList.add("color-variable");
   colorElement.style.backgroundColor = property.value;
-  colorElement.textContent = `${property.name}: ${property.value}`;
+  colorElement.style.padding = "1rem";
+  colorElement.style.borderRadius = "0.25rem";
+  colorElement.style.margin = "0.5rem";
+  colorElement.appendChild(text);
   return colorElement;
 };
 
@@ -69,13 +64,4 @@ const calcStyleType = (
     }
   }
   return undefined;
-};
-
-const createAndAppendElements = (
-  property: Property,
-  builder: (property: Property) => HTMLElement,
-  appendTo: HTMLElement,
-) => {
-  const el = builder(property);
-  appendTo.appendChild(el);
 };

@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/html";
-import { createVariableElements } from "./Variables";
+import {
+  customProperties,
+  designTokens,
+  createColorElement,
+  type Property,
+} from "./Variables";
 
 const meta: Meta = {
   title: "Variables",
@@ -33,18 +38,25 @@ type Story = StoryObj;
 /**
  * デフォルトのボタンを表示する基本ストーリー
  */
-export const Default: Story = {
-  render: (args) => {
-    const storyRootElement =
-      document.querySelector<HTMLEmbedElement>("#storybook-root") ??
-      document.body;
-    return createVariableElements(storyRootElement);
+export const Color: Story = {
+  render: (_args) => {
+    const rootEl = document.querySelector<HTMLEmbedElement>("#storybook-root");
+    const container = document.createElement("div");
+    const properties = customProperties(rootEl ?? document.documentElement);
+    const tokens = designTokens(properties);
+    for (const property of tokens.color ?? []) {
+      createAndAppendElements(property, createColorElement, container);
+    }
+    return container;
   },
-  args: {
-    label: "Button",
-    variant: "primary",
-    outline: false,
-    block: false,
-    disabled: false,
-  },
+  args: {},
+};
+
+const createAndAppendElements = (
+  property: Property,
+  builder: (property: Property) => HTMLElement,
+  appendTo: HTMLElement,
+) => {
+  const el = builder(property);
+  appendTo.appendChild(el);
 };
