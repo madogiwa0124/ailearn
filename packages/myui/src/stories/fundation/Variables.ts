@@ -19,7 +19,10 @@ export type Property = {
   styleType: keyof typeof PREFIX_STYLE_MAPPING | undefined;
 };
 
-export const customProperties = (element: HTMLElement): Property[] => {
+export const customProperties = (
+  element: HTMLElement,
+  prefixStyleMapping: typeof PREFIX_STYLE_MAPPING = PREFIX_STYLE_MAPPING,
+): Property[] => {
   const htmlStyle = element?.computedStyleMap() ?? [];
   const entries = Array.from(htmlStyle.entries());
   const properties = entries.filter(([propertyName, _]) =>
@@ -28,7 +31,7 @@ export const customProperties = (element: HTMLElement): Property[] => {
   return properties.map(([name, value]) => ({
     name,
     value: value.toString(),
-    styleType: calcStyleType(name),
+    styleType: calcStyleType(name, prefixStyleMapping),
   }));
 };
 
@@ -75,10 +78,11 @@ export const createSpacingElement = (property: Property): HTMLElement => {
 
 const calcStyleType = (
   name: string,
-): keyof typeof PREFIX_STYLE_MAPPING | undefined => {
-  for (const [styleType, regex] of Object.entries(PREFIX_STYLE_MAPPING)) {
+  prefixStyleMapping: typeof PREFIX_STYLE_MAPPING,
+): keyof typeof prefixStyleMapping | undefined => {
+  for (const [styleType, regex] of Object.entries(prefixStyleMapping)) {
     if (regex.test(name)) {
-      return styleType as keyof typeof PREFIX_STYLE_MAPPING;
+      return styleType as keyof typeof prefixStyleMapping;
     }
   }
   return undefined;
