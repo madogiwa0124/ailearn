@@ -55,6 +55,24 @@ export const createColorElement = (property: Property): HTMLElement => {
   return colorElement;
 };
 
+export const createSpacingElement = (property: Property): HTMLElement => {
+  const spacingElement = document.createElement("div");
+  spacingElement.style.display = "flex";
+  spacingElement.style.alignItems = "center";
+  spacingElement.style.gap = "1rem";
+  const spacing = document.createElement("div");
+  spacing.classList.add("spacing-variable");
+  spacing.style.width = property.value;
+  spacing.style.height = "2rem";
+  spacing.style.border = "1px solid lightgray";
+  spacing.style.margin = "0.5rem";
+  const text = document.createElement("div");
+  text.textContent = `${property.name}: ${property.value}`;
+  spacingElement.appendChild(text);
+  spacingElement.appendChild(spacing);
+  return spacingElement;
+};
+
 const calcStyleType = (
   name: string,
 ): keyof typeof PREFIX_STYLE_MAPPING | undefined => {

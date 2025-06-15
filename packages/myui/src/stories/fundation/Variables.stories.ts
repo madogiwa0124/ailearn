@@ -4,6 +4,7 @@ import {
   designTokens,
   createColorElement,
   type Property,
+  createSpacingElement,
 } from "./Variables";
 
 const meta: Meta = {
@@ -35,9 +36,6 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-/**
- * デフォルトのボタンを表示する基本ストーリー
- */
 export const Color: Story = {
   render: (_args) => {
     const rootEl = document.querySelector<HTMLEmbedElement>("#storybook-root");
@@ -46,6 +44,20 @@ export const Color: Story = {
     const tokens = designTokens(properties);
     for (const property of tokens.color ?? []) {
       createAndAppendElements(property, createColorElement, container);
+    }
+    return container;
+  },
+  args: {},
+};
+
+export const Spacing: Story = {
+  render: (_args) => {
+    const rootEl = document.querySelector<HTMLEmbedElement>("#storybook-root");
+    const container = document.createElement("div");
+    const properties = customProperties(rootEl ?? document.documentElement);
+    const tokens = designTokens(properties);
+    for (const property of tokens.spacing ?? []) {
+      createAndAppendElements(property, createSpacingElement, container);
     }
     return container;
   },
