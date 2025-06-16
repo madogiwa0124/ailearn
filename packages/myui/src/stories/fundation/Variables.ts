@@ -122,6 +122,41 @@ export const createTypographyElement: CreatePropertyElement = (property) => {
   return typographyElement;
 };
 
+export const createShadowElement: CreatePropertyElement = (property) => {
+  const shadowElement = document.createElement("div");
+  shadowElement.style.display = "flex";
+  shadowElement.style.flexDirection = "column";
+  shadowElement.style.gap = "0.5rem";
+  shadowElement.style.padding = "2rem";
+  shadowElement.style.margin = "1rem";
+  shadowElement.style.backgroundColor = "#ffffff";
+  shadowElement.style.borderRadius = "0.5rem";
+  shadowElement.style.border = "1px solid #e0e0e0";
+
+  // プロパティ名と値を表示
+  const propertyInfo = document.createElement("div");
+  propertyInfo.textContent = `${property.name}: ${property.value}`;
+  propertyInfo.style.fontSize = "0.875rem";
+  propertyInfo.style.color = "#666";
+  propertyInfo.style.fontFamily = "monospace";
+  propertyInfo.style.marginBottom = "1rem";
+
+  // シャドウのサンプル要素
+  const sampleBox = document.createElement("div");
+  sampleBox.textContent = "Shadow Sample";
+  sampleBox.style.padding = "1.5rem";
+  sampleBox.style.backgroundColor = "#f8f9fa";
+  sampleBox.style.borderRadius = "0.25rem";
+  sampleBox.style.textAlign = "center";
+  sampleBox.style.color = "#333";
+  sampleBox.style.fontWeight = "500";
+  sampleBox.style.boxShadow = property.value;
+
+  shadowElement.appendChild(propertyInfo);
+  shadowElement.appendChild(sampleBox);
+  return shadowElement;
+};
+
 // pxをremに変換するヘルパー関数
 const convertPxToRem = (
   value: string,

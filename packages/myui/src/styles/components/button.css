@@ -7,7 +7,6 @@
   --btn-text-color-primary: var(--color-text-light);
   --btn-text-color-secondary: var(--color-text-light);
   --btn-text-color-tertiary: var(--color-text-light);
-  --btn-shadow-color: var(--shadow-color);
   --btn-darker-brightness: 90%;
   --btn-lighter-brightness: 120%;
   --btn-disabled-opacity: 0.65;
@@ -17,9 +16,7 @@
   --btn-padding-y: var(--spacing-2);
 
   /* Shadow */
-  --btn-shadow-offset-x: 0px;
-  --btn-shadow-offset-y: 2px;
-  --btn-shadow-blur: 2px;
+  --btn-box-shadow: var(--shadow-sm);
 
   /* Border */
   --btn-border-radius: var(--border-radius);
@@ -36,8 +33,7 @@
   padding: var(--btn-padding-y) var(--btn-padding-x);
   border-radius: var(--btn-border-radius);
   cursor: pointer;
-  box-shadow: var(--btn-shadow-offset-x) var(--btn-shadow-offset-y)
-    var(--btn-shadow-blur) var(--btn-shadow-color);
+  box-shadow: var(--btn-box-shadow);
 
   &:hover,
   &:focus,

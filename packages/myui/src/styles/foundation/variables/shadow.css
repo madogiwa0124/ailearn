@@ -1,41 +1,24 @@
-@property --shadow-offset-x {
-  syntax: "<length>";
-  initial-value: 0px;
+/* 実際に使用するシャドウの組み合わせ */
+@property --shadow-sm {
+  syntax: "*";
+  initial-value: 0 2px 4px rgba(0, 0, 0, 0.1);
   inherits: true;
 }
 
-@property --shadow-sm-offset-y {
-  syntax: "<length>";
-  initial-value: 2px;
+@property --shadow-md {
+  syntax: "*";
+  initial-value: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
   inherits: true;
 }
 
-@property --shadow-sm-blur {
-  syntax: "<length>";
-  initial-value: 4px;
+@property --shadow-lg {
+  syntax: "*";
+  initial-value: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
   inherits: true;
 }
 
-@property --shadow-offset-y {
-  syntax: "<length>";
-  initial-value: 8px;
-  inherits: true;
-}
-
-@property --shadow-blur {
-  syntax: "<length>";
-  initial-value: 16px;
-  inherits: true;
-}
-
-@property --shadow-lg-offset-y {
-  syntax: "<length>";
-  initial-value: 16px;
-  inherits: true;
-}
-
-@property --shadow-lg-blur {
-  syntax: "<length>";
-  initial-value: 48px;
+@property --shadow-xl {
+  syntax: "*";
+  initial-value: 0 16px 32px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.15);
   inherits: true;
 }

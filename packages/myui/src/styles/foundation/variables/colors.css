@@ -72,30 +72,3 @@
   initial-value: #212529;
   inherits: true;
 }
-
-/* シャドウの色 */
-@property --shadow-lg-color {
-  syntax: "<color>";
-  initial-value: rgba(0, 0, 0, 0.175);
-  inherits: true;
-}
-
-@property --shadow-color {
-  syntax: "<color>";
-  initial-value: rgba(0, 0, 0, 0.15);
-  inherits: true;
-}
-
-/* ボーダーの色 */
-@property --color-border {
-  syntax: "<color>";
-  initial-value: #dee2e6;
-  inherits: true;
-}
-
-/* シャドウの色 */
-@property --shadow-sm-color {
-  syntax: "<color>";
-  initial-value: rgba(0, 0, 0, 0.075);
-  inherits: true;
-}
