@@ -7,6 +7,7 @@ import {
   createSpacingElement,
   createTypographyElement,
   createShadowElement,
+  createCornerElement,
 } from "./Variables";
 
 const meta: Meta = {
@@ -84,6 +85,19 @@ export const Shadow: Story = {
     const tokens = getDesignTokens(rootEl ?? document.documentElement);
     for (const property of tokens.shadow ?? []) {
       createAndAppendElements(property, createShadowElement, container);
+    }
+    return container;
+  },
+  args: {},
+};
+
+export const Corner: Story = {
+  render: (_args) => {
+    const rootEl = document.querySelector<HTMLEmbedElement>("#storybook-root");
+    const container = document.createElement("div");
+    const tokens = getDesignTokens(rootEl ?? document.documentElement);
+    for (const property of tokens.corner ?? []) {
+      createAndAppendElements(property, createCornerElement, container);
     }
     return container;
   },

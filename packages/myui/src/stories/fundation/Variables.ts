@@ -1,11 +1,10 @@
 const PREFIX_STYLE_MAPPING = {
   color: /--color-(.*)/,
   shadow: /--shadow-(.*)/,
-  border: /--border-(.*)/,
   spacing: /--spacing-(.*)/,
   typography:
     /--(line-height|font-size|font-weight|font-family|letter-spacing)(.*)/,
-  borderRadius: /--border-radius(.*)/,
+  corner: /--border-radius(.*)/,
 };
 
 type DesignToken = {
@@ -155,6 +154,40 @@ export const createShadowElement: CreatePropertyElement = (property) => {
   shadowElement.appendChild(propertyInfo);
   shadowElement.appendChild(sampleBox);
   return shadowElement;
+};
+
+export const createCornerElement: CreatePropertyElement = (property) => {
+  const cornerElement = document.createElement("div");
+  cornerElement.style.display = "flex";
+  cornerElement.style.flexDirection = "column";
+  cornerElement.style.gap = "0.5rem";
+  cornerElement.style.padding = "2rem";
+  cornerElement.style.margin = "1rem";
+  cornerElement.style.backgroundColor = "#ffffff";
+  cornerElement.style.border = "1px solid #e0e0e0";
+
+  // プロパティ名と値を表示
+  const propertyInfo = document.createElement("div");
+  propertyInfo.textContent = `${property.name}: ${property.value}`;
+  propertyInfo.style.fontSize = "0.875rem";
+  propertyInfo.style.color = "#666";
+  propertyInfo.style.fontFamily = "monospace";
+  propertyInfo.style.marginBottom = "1rem";
+
+  // コーナー（border-radius）のサンプル要素
+  const sampleBox = document.createElement("div");
+  sampleBox.textContent = "Corner Sample";
+  sampleBox.style.padding = "1.5rem";
+  sampleBox.style.backgroundColor = "#3b82f6";
+  sampleBox.style.color = "white";
+  sampleBox.style.textAlign = "center";
+  sampleBox.style.fontWeight = "500";
+  sampleBox.style.borderRadius = property.value;
+  sampleBox.style.border = "2px solid #1e40af";
+
+  cornerElement.appendChild(propertyInfo);
+  cornerElement.appendChild(sampleBox);
+  return cornerElement;
 };
 
 // pxをremに変換するヘルパー関数
