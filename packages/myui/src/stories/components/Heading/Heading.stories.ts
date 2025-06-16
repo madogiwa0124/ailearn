@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/html";
-import { createHeading, HeadingProps } from "./Heading";
+import type { Meta, StoryObj } from "@storybook/html";
+import { createHeading, type HeadingProps } from "./Heading";
 
 const meta: Meta<HeadingProps> = {
   title: "Components/Heading",
@@ -7,7 +7,8 @@ const meta: Meta<HeadingProps> = {
   argTypes: {
     text: { control: "text" },
     level: {
-      control: { type: "select", options: [1, 2, 3, 4, 5, 6] },
+      control: "select",
+      options: [1, 2, 3, 4, 5, 6],
     },
     className: { control: "text" },
   },
@@ -65,35 +66,6 @@ export const AllHeadings: Story = {
       });
       container.appendChild(heading);
     }
-
-    return container;
-  },
-};
-
-/**
- * 追加のクラスが適用されたヘディングを表示するストーリー
- */
-export const WithCustomClass: Story = {
-  render: () => {
-    const container = document.createElement("div");
-    container.style.display = "flex";
-    container.style.flexDirection = "column";
-    container.style.gap = "20px";
-
-    const heading1 = createHeading({
-      text: "デフォルトのスタイル",
-      level: 2,
-    });
-
-    const heading2 = createHeading({
-      text: "カスタムクラス適用",
-      level: 2,
-      className: "text-center",
-    });
-    heading2.style.textAlign = "center"; // デモ用にインラインスタイルを適用
-
-    container.appendChild(heading1);
-    container.appendChild(heading2);
 
     return container;
   },

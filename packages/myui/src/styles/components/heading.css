@@ -23,11 +23,11 @@
 }
 
 .h4 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
 }
 
 .h5 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
 }
 
 .h6 {
