@@ -1,7 +1,6 @@
 const PREFIX_STYLE_MAPPING = {
   color: /--color-(.*)/,
   shadow: /--shadow-(.*)/,
-  fontFamily: /--font-family(.*)/,
   border: /--border-(.*)/,
   spacing: /--spacing-(.*)/,
   typography:
@@ -18,6 +17,8 @@ export type Property = {
   value: string;
   styleType: keyof typeof PREFIX_STYLE_MAPPING | undefined;
 };
+
+type CreatePropertyElement = (property: Property) => HTMLElement;
 
 export const customProperties = (
   element: HTMLElement,
@@ -42,10 +43,10 @@ export const designTokens = (properties: Property[]): DesignToken => {
   return result as DesignToken;
 };
 
-export const createColorElement = (property: Property): HTMLElement => {
+export const createColorElement: CreatePropertyElement = (property) => {
   const colorElement = document.createElement("div");
   const text = document.createElement("span");
-  text.textContent = property.name;
+  text.textContent = `${property.name}: ${property.value}`;
   // text.style.mixBlendMode = "difference";
   text.style.color = property.value;
   text.style.filter = "invert(100%) grayscale(100%) contrast(100)";
@@ -58,7 +59,7 @@ export const createColorElement = (property: Property): HTMLElement => {
   return colorElement;
 };
 
-export const createSpacingElement = (property: Property): HTMLElement => {
+export const createSpacingElement: CreatePropertyElement = (property) => {
   const spacingElement = document.createElement("div");
   spacingElement.style.display = "flex";
   spacingElement.style.alignItems = "center";
@@ -74,6 +75,65 @@ export const createSpacingElement = (property: Property): HTMLElement => {
   spacingElement.appendChild(text);
   spacingElement.appendChild(spacing);
   return spacingElement;
+};
+
+export const createTypographyElement: CreatePropertyElement = (property) => {
+  const typographyElement = document.createElement("div");
+  typographyElement.style.display = "flex";
+  typographyElement.style.flexDirection = "column";
+  typographyElement.style.gap = "0.5rem";
+  typographyElement.style.padding = "1rem";
+  typographyElement.style.border = "1px solid #e0e0e0";
+  typographyElement.style.borderRadius = "0.25rem";
+  typographyElement.style.margin = "0.5rem";
+  typographyElement.style.backgroundColor = "#fafafa";
+
+  // プロパティ名と値を表示（px値とrem換算値を併記）
+  const propertyInfo = document.createElement("div");
+  const remValue = convertPxToRem(property.value, 16); // 16pxを基準とする
+  let valueDisplay = `${property.name}: ${property.value}`;
+  if (remValue && remValue !== property.value) {
+    valueDisplay += ` (${remValue})`;
+  }
+  propertyInfo.textContent = valueDisplay;
+  propertyInfo.style.fontSize = "0.875rem";
+  propertyInfo.style.color = "#666";
+  propertyInfo.style.fontFamily = "monospace";
+
+  // サンプルテキスト
+  const sampleText = document.createElement("div");
+  sampleText.textContent = "サンプルテキスト Sample Text 123";
+
+  // プロパティタイプに応じてスタイルを適用
+  if (property.name.includes("font-size")) {
+    sampleText.style.fontSize = property.value;
+  } else if (property.name.includes("font-weight")) {
+    sampleText.style.fontWeight = property.value;
+  } else if (property.name.includes("line-height")) {
+    sampleText.style.lineHeight = property.value;
+  } else if (property.name.includes("letter-spacing")) {
+    sampleText.style.letterSpacing = property.value;
+  } else if (property.name.includes("font-family")) {
+    sampleText.style.fontFamily = property.value;
+  }
+
+  typographyElement.appendChild(propertyInfo);
+  typographyElement.appendChild(sampleText);
+  return typographyElement;
+};
+
+// pxをremに変換するヘルパー関数
+const convertPxToRem = (
+  value: string,
+  rootFontSize: number,
+): string | undefined => {
+  const match = value.match(/^([\d.]+)px$/);
+  if (match) {
+    const pxValue = Number.parseFloat(match[1]);
+    const remValue = pxValue / rootFontSize;
+    return `${remValue.toFixed(3)}rem`;
+  }
+  return undefined;
 };
 
 const calcStyleType = (

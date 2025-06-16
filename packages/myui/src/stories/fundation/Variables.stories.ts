@@ -5,6 +5,7 @@ import {
   createColorElement,
   type Property,
   createSpacingElement,
+  createTypographyElement,
 } from "./Variables";
 
 const meta: Meta = {
@@ -40,8 +41,7 @@ export const Color: Story = {
   render: (_args) => {
     const rootEl = document.querySelector<HTMLEmbedElement>("#storybook-root");
     const container = document.createElement("div");
-    const properties = customProperties(rootEl ?? document.documentElement);
-    const tokens = designTokens(properties);
+    const tokens = getDesignTokens(rootEl ?? document.documentElement);
     for (const property of tokens.color ?? []) {
       createAndAppendElements(property, createColorElement, container);
     }
@@ -54,14 +54,32 @@ export const Spacing: Story = {
   render: (_args) => {
     const rootEl = document.querySelector<HTMLEmbedElement>("#storybook-root");
     const container = document.createElement("div");
-    const properties = customProperties(rootEl ?? document.documentElement);
-    const tokens = designTokens(properties);
+    const tokens = getDesignTokens(rootEl ?? document.documentElement);
     for (const property of tokens.spacing ?? []) {
       createAndAppendElements(property, createSpacingElement, container);
     }
     return container;
   },
   args: {},
+};
+
+export const Typography: Story = {
+  render: (_args) => {
+    const rootEl = document.querySelector<HTMLEmbedElement>("#storybook-root");
+    const container = document.createElement("div");
+    const tokens = getDesignTokens(rootEl ?? document.documentElement);
+    for (const property of tokens.typography ?? []) {
+      createAndAppendElements(property, createTypographyElement, container);
+    }
+    return container;
+  },
+  args: {},
+};
+
+const getDesignTokens = (element: HTMLElement): Record<string, Property[]> => {
+  const properties = customProperties(element);
+  const tokens = designTokens(properties);
+  return tokens;
 };
 
 const createAndAppendElements = (
