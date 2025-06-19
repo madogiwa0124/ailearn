@@ -3,6 +3,7 @@
   --checkbox-border-color: var(--color-dark);
   --checkbox-bg-color: var(--color-light);
   --checkbox-border-radius: 0.2em;
+  --checkbox-lighter-brightness: 150%;
 
   appearance: none;
   display: inline-block;
@@ -26,6 +27,17 @@
     left: calc(var(--checkbox-size) / 6);
     top: calc(var(--checkbox-size) / 12);
     transform: rotate(45deg);
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    filter: brightness(var(--checkbox-lighter-brightness));
+    transition: filter 0.2s ease;
+
+    &:disabled {
+      filter: none;
+    }
   }
 
   &:checked {
