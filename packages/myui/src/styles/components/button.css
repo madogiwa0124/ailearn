@@ -76,6 +76,8 @@
 
   &.--outline {
     transition: background-color 0.2s ease;
+    background-color: transparent;
+    border: 2px solid transparent;
 
     &.--primary {
       color: var(--btn-color-primary);
