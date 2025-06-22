@@ -4,6 +4,7 @@
   --checkbox-bg-color: var(--color-light);
   --checkbox-border-radius: 0.2em;
   --checkbox-lighter-brightness: 150%;
+  --checkbox-disabled-opacity: 0.65;
 
   appearance: none;
   display: inline-block;
@@ -14,6 +15,7 @@
   border: 2px solid var(--checkbox-border-color);
   border-radius: var(--checkbox-border-radius);
   cursor: pointer;
+  user-select: none;
 
   &::after {
     display: none;
@@ -48,5 +50,11 @@
       border-color: var(--color-text-light);
       display: block;
     }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--checkbox-disabled-opacity);
+    pointer-events: none;
   }
 }
