@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/html";
-import { createParagraph, ParagraphProps } from "./Paragraph";
+import type { Meta, StoryObj } from "@storybook/html";
+import { createParagraph, type ParagraphProps } from "./Paragraph";
 
 const meta: Meta<ParagraphProps> = {
   title: "Components/Paragraph",
@@ -13,16 +13,6 @@ const meta: Meta<ParagraphProps> = {
       description: {
         component:
           "フレームワークに依存しないパラグラフコンポーネント。カスケードレイヤーを使用したCSS設計を採用しています。",
-      },
-    },
-    a11y: {
-      config: {
-        rules: [
-          {
-            id: "document-structure",
-            reviewOnFail: true,
-          },
-        ],
       },
     },
   },

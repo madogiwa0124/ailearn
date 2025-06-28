@@ -12,18 +12,6 @@ const meta: Meta = {
           "フレームワークに依存しないカスタムCheckboxコンポーネント。カスケードレイヤーを使用したCSS設計を採用しています。",
       },
     },
-    a11y: {
-      // アクセシビリティチェックの設定
-      config: {
-        rules: [
-          {
-            // コントラスト比のチェック
-            id: "color-contrast",
-            reviewOnFail: true,
-          },
-        ],
-      },
-    },
   },
 };
 
@@ -79,7 +67,7 @@ export const WithLabel: Story = {
         value: "checkbox-with-label",
         id: "checkbox-with-label",
       },
-      "利用規約に同意する"
+      "利用規約に同意する",
     );
   },
   args: {},

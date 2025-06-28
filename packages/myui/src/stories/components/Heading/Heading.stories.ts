@@ -19,16 +19,6 @@ const meta: Meta<HeadingProps> = {
           "フレームワークに依存しないヘディングコンポーネント。CSSのカスケードレイヤーを使用したスタイル設計を採用しています。",
       },
     },
-    a11y: {
-      config: {
-        rules: [
-          {
-            id: "heading-order",
-            reviewOnFail: true,
-          },
-        ],
-      },
-    },
   },
 };
 

@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/html";
-import { createLink, LinkProps } from "./Link";
+import type { Meta, StoryObj } from "@storybook/html";
+import { createLink, type LinkProps } from "./Link";
 
 const meta: Meta<LinkProps> = {
   title: "Components/Link",
@@ -16,16 +16,6 @@ const meta: Meta<LinkProps> = {
       description: {
         component:
           "フレームワークに依存しないリンクコンポーネント。カスケードレイヤーを使用したCSS設計を採用しています。",
-      },
-    },
-    a11y: {
-      config: {
-        rules: [
-          {
-            id: "link-name",
-            reviewOnFail: true,
-          },
-        ],
       },
     },
   },

@@ -25,18 +25,6 @@ const meta: Meta<ButtonProps> = {
           "フレームワークに依存しないカスタムボタンコンポーネント。カスケードレイヤーを使用したCSS設計を採用しています。",
       },
     },
-    a11y: {
-      // アクセシビリティチェックの設定
-      config: {
-        rules: [
-          {
-            // コントラスト比のチェック
-            id: "color-contrast",
-            reviewOnFail: true,
-          },
-        ],
-      },
-    },
   },
 };
 
