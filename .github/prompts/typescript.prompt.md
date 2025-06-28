@@ -21,6 +21,30 @@
   // }
   ```
 
+- **Array Iteration**: Use `for...of` loops instead of `forEach` for better performance and readability. This allows for better control flow (break, continue, return) and is more efficient:
+  ```typescript
+  // Recommended
+  const items = ['apple', 'banana', 'orange'];
+
+  for (const item of items) {
+    console.log(item);
+    if (item === 'banana') {
+      break; // This works with for...of
+    }
+  }
+
+  // For arrays with index
+  for (const [index, item] of items.entries()) {
+    console.log(`${index}: ${item}`);
+  }
+
+  // Avoid forEach when possible
+  // items.forEach((item) => {
+  //   console.log(item);
+  //   // Cannot use break or continue here
+  // });
+  ```
+
 ### 2. TypeScript Specific
 
 - **Strict Type Checking**: Enable strict type checking in your `tsconfig.json` to catch potential errors early.
