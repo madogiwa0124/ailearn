@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/html";
 import { createCheckbox, createCheckboxWithLabel } from "./Checkbox";
+import { expect, userEvent } from "@storybook/test";
 
 const meta: Meta = {
   title: "Components/Checkbox",
@@ -23,6 +24,23 @@ export const Default: Story = {
     return createCheckbox();
   },
   args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+    const checkbox = canvas.querySelector(
+      "input[type='checkbox']",
+    ) as HTMLInputElement;
+
+    expect(checkbox).not.toBeNull();
+    expect(checkbox).toHaveClass("checkbox");
+    expect(checkbox).not.toBeChecked();
+    expect(checkbox).not.toBeDisabled();
+
+    await userEvent.click(checkbox);
+    expect(checkbox).toBeChecked();
+
+    await userEvent.click(checkbox);
+    expect(checkbox).not.toBeChecked();
+  },
 };
 
 export const Checked: Story = {
@@ -34,6 +52,22 @@ export const Checked: Story = {
     });
   },
   args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+    const checkbox = canvas.querySelector(
+      "input[type='checkbox']",
+    ) as HTMLInputElement;
+
+    expect(checkbox).not.toBeNull();
+    expect(checkbox).toHaveClass("checkbox");
+    expect(checkbox).toBeChecked();
+
+    await userEvent.click(checkbox);
+    expect(checkbox).not.toBeChecked();
+
+    await userEvent.click(checkbox);
+    expect(checkbox).toBeChecked();
+  },
 };
 
 export const Disabled: Story = {
@@ -45,6 +79,17 @@ export const Disabled: Story = {
     });
   },
   args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+    const checkbox = canvas.querySelector(
+      "input[type='checkbox']",
+    ) as HTMLInputElement;
+
+    expect(checkbox).not.toBeNull();
+    expect(checkbox).toHaveClass("checkbox");
+    expect(checkbox).not.toBeChecked();
+    expect(checkbox).toBeDisabled();
+  },
 };
 
 export const CheckedDisabled: Story = {
@@ -57,6 +102,17 @@ export const CheckedDisabled: Story = {
     });
   },
   args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+    const checkbox = canvas.querySelector(
+      "input[type='checkbox']",
+    ) as HTMLInputElement;
+
+    expect(checkbox).not.toBeNull();
+    expect(checkbox).toHaveClass("checkbox");
+    expect(checkbox).toBeChecked();
+    expect(checkbox).toBeDisabled();
+  },
 };
 
 export const WithLabel: Story = {
@@ -71,4 +127,23 @@ export const WithLabel: Story = {
     );
   },
   args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+    const checkbox = canvas.querySelector(
+      "input[type='checkbox']",
+    ) as HTMLInputElement;
+    const label = canvas.querySelector("label") as HTMLLabelElement;
+    expect(checkbox).not.toBeNull();
+    expect(label).not.toBeNull();
+    expect(label).toHaveAttribute("for", "checkbox-with-label");
+    expect(label).toHaveTextContent("利用規約に同意する");
+
+    expect(checkbox).not.toBeChecked();
+
+    await userEvent.click(label);
+    expect(checkbox).toBeChecked();
+
+    await userEvent.click(label);
+    expect(checkbox).not.toBeChecked();
+  },
 };

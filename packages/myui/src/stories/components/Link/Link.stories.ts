@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/html";
 import { createLink, type LinkProps } from "./Link";
+import { expect } from "@storybook/test";
 
 const meta: Meta<LinkProps> = {
   title: "Components/Link",
@@ -37,6 +38,17 @@ export const Default: Story = {
     newTab: false,
     className: "",
   },
+  play: async ({ canvasElement, args }) => {
+    const canvas = canvasElement as HTMLElement;
+    const link = canvas.querySelector("a") as HTMLAnchorElement;
+
+    expect(link).not.toBeNull();
+    expect(link).toHaveClass("link");
+    expect(link).toHaveTextContent(args.text || "リンクテキスト");
+    expect(link).toHaveAttribute("href", args.href || "https://example.com");
+    expect(link).not.toHaveAttribute("target");
+    expect(link).not.toHaveAttribute("rel");
+  },
 };
 
 /**
@@ -66,6 +78,28 @@ export const NewTabLink: Story = {
 
     return container;
   },
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+    const links = canvas.querySelectorAll("a");
+
+    const regularLink = links[0];
+    const newTabLink = links[1];
+
+    // 通常リンクのテスト
+    expect(regularLink).not.toBeNull();
+    expect(regularLink).toHaveClass("link");
+    expect(regularLink).toHaveTextContent("通常リンク");
+    expect(regularLink).toHaveAttribute("href", "https://example.com");
+    expect(regularLink).not.toHaveAttribute("target");
+
+    // 新しいタブリンクのテスト
+    expect(newTabLink).not.toBeNull();
+    expect(newTabLink).toHaveClass("link");
+    expect(newTabLink).toHaveTextContent("新しいタブで開くリンク");
+    expect(newTabLink).toHaveAttribute("href", "https://example.com");
+    expect(newTabLink).toHaveAttribute("target", "_blank");
+    expect(newTabLink).toHaveAttribute("rel", "noopener noreferrer");
+  },
 };
 
 /**
@@ -89,5 +123,22 @@ export const LinkInParagraph: Story = {
     container.appendChild(paragraph);
 
     return container;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+    const paragraph = canvas.querySelector("p") as HTMLParagraphElement;
+    const link = canvas.querySelector("a") as HTMLAnchorElement;
+
+    expect(paragraph).not.toBeNull();
+    expect(link).not.toBeNull();
+    expect(link).toHaveClass("link");
+    expect(link).toHaveTextContent("リンク");
+    expect(link).toHaveAttribute("href", "https://example.com");
+
+    // パラグラフ内にリンクが含まれていることを確認
+    expect(paragraph.contains(link)).toBe(true);
+    expect(paragraph.textContent).toContain("これは文章内に");
+    expect(paragraph.textContent).toContain("リンク");
+    expect(paragraph.textContent).toContain("が含まれている例です。");
   },
 };

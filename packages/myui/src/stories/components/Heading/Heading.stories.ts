@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/html";
 import { createHeading, type HeadingProps } from "./Heading";
+import { expect } from "@storybook/test";
 
 const meta: Meta<HeadingProps> = {
   title: "Components/Heading",
@@ -37,6 +38,15 @@ export const Default: Story = {
     level: 1,
     className: "",
   },
+  play: async ({ canvasElement, args }) => {
+    const canvas = canvasElement as HTMLElement;
+    const heading = canvas.querySelector("h1") as HTMLHeadingElement;
+
+    expect(heading).not.toBeNull();
+    expect(heading).toHaveClass("h1");
+    expect(heading).toHaveTextContent(args.text || "見出しテキスト");
+    expect(heading.tagName.toLowerCase()).toBe("h1");
+  },
 };
 
 /**
@@ -58,5 +68,17 @@ export const AllHeadings: Story = {
     }
 
     return container;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+
+    // すべてのヘディングレベル（h1-h6）がレンダリングされていることを確認
+    for (let level = 1; level <= 6; level++) {
+      const heading = canvas.querySelector(`h${level}`) as HTMLHeadingElement;
+      expect(heading).not.toBeNull();
+      expect(heading).toHaveClass(`h${level}`);
+      expect(heading).toHaveTextContent(`見出しレベル ${level}`);
+      expect(heading.tagName.toLowerCase()).toBe(`h${level}`);
+    }
   },
 };
