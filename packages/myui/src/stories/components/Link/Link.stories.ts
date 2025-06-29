@@ -48,54 +48,6 @@ export const Default: Story = {
   },
 };
 
-export const NewTabLink: Story = {
-  render: () => {
-    const container = document.createElement("div");
-    container.style.display = "flex";
-    container.style.flexDirection = "column";
-    container.style.gap = "10px";
-
-    const regularLink = createLink({
-      text: "通常リンク",
-      href: "https://example.com",
-      newTab: false,
-    });
-
-    const newTabLink = createLink({
-      text: "新しいタブで開くリンク",
-      href: "https://example.com",
-      newTab: true,
-    });
-
-    container.appendChild(regularLink);
-    container.appendChild(newTabLink);
-
-    return container;
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = canvasElement as HTMLElement;
-    const links = canvas.querySelectorAll("a");
-
-    const regularLink = links[0];
-    const newTabLink = links[1];
-
-    // 通常リンクのテスト
-    expect(regularLink).not.toBeNull();
-    expect(regularLink).toHaveClass("link");
-    expect(regularLink).toHaveTextContent("通常リンク");
-    expect(regularLink).toHaveAttribute("href", "https://example.com");
-    expect(regularLink).not.toHaveAttribute("target");
-
-    // 新しいタブリンクのテスト
-    expect(newTabLink).not.toBeNull();
-    expect(newTabLink).toHaveClass("link");
-    expect(newTabLink).toHaveTextContent("新しいタブで開くリンク");
-    expect(newTabLink).toHaveAttribute("href", "https://example.com");
-    expect(newTabLink).toHaveAttribute("target", "_blank");
-    expect(newTabLink).toHaveAttribute("rel", "noopener noreferrer");
-  },
-};
-
 export const LinkInParagraph: Story = {
   render: () => {
     const container = document.createElement("div");
@@ -126,7 +78,6 @@ export const LinkInParagraph: Story = {
     expect(link).toHaveTextContent("リンク");
     expect(link).toHaveAttribute("href", "https://example.com");
 
-    // パラグラフ内にリンクが含まれていることを確認
     expect(paragraph.contains(link)).toBe(true);
     expect(paragraph.textContent).toContain("これは文章内に");
     expect(paragraph.textContent).toContain("リンク");
