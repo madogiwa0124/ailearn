@@ -5,31 +5,44 @@
 .h5,
 .h6 {
   margin-top: var(--spacing-0);
-  margin-bottom: var(--spacing-2);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-sm);
+
+  &:not(:last-child) {
+    margin-bottom: var(--spacing-4);
+  }
 }
 
 .h1 {
   font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-lg);
 }
 
 .h2 {
   font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-base);
 }
 
 .h3 {
   font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-base);
 }
 
 .h4 {
   font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-base);
 }
 
 .h5 {
   font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-base);
 }
 
 .h6 {
   font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-base);
 }
