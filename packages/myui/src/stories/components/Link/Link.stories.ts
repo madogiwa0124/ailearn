@@ -25,9 +25,6 @@ const meta: Meta<LinkProps> = {
 export default meta;
 type Story = StoryObj<LinkProps>;
 
-/**
- * デフォルトのリンクを表示する基本ストーリー
- */
 export const Default: Story = {
   render: (args) => {
     return createLink(args);
@@ -51,9 +48,6 @@ export const Default: Story = {
   },
 };
 
-/**
- * 新しいタブで開くリンクを表示するストーリー
- */
 export const NewTabLink: Story = {
   render: () => {
     const container = document.createElement("div");
@@ -102,9 +96,6 @@ export const NewTabLink: Story = {
   },
 };
 
-/**
- * パラグラフ内のリンクを表示するストーリー
- */
 export const LinkInParagraph: Story = {
   render: () => {
     const container = document.createElement("div");

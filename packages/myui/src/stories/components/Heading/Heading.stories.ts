@@ -26,9 +26,6 @@ const meta: Meta<HeadingProps> = {
 export default meta;
 type Story = StoryObj<HeadingProps>;
 
-/**
- * デフォルトのヘディングを表示する基本ストーリー
- */
 export const Default: Story = {
   render: (args) => {
     return createHeading(args);
@@ -49,9 +46,6 @@ export const Default: Story = {
   },
 };
 
-/**
- * すべてのヘディングレベルを表示するストーリー
- */
 export const AllHeadings: Story = {
   render: () => {
     const container = document.createElement("div");

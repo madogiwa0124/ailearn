@@ -22,9 +22,6 @@ const meta: Meta<ParagraphProps> = {
 export default meta;
 type Story = StoryObj<ParagraphProps>;
 
-/**
- * デフォルトのパラグラフを表示する基本ストーリー
- */
 export const Default: Story = {
   render: (args) => {
     return createParagraph(args);
@@ -43,9 +40,6 @@ export const Default: Story = {
   },
 };
 
-/**
- * 複数のパラグラフを表示するストーリー
- */
 export const MultipleParagraphs: Story = {
   render: () => {
     const container = document.createElement("div");
@@ -91,9 +85,6 @@ export const MultipleParagraphs: Story = {
   },
 };
 
-/**
- * カスタムクラスが適用されたパラグラフを表示するストーリー
- */
 export const CustomStyledParagraphs: Story = {
   render: () => {
     const container = document.createElement("div");

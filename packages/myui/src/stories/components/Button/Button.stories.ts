@@ -31,9 +31,6 @@ const meta: Meta<ButtonProps> = {
 export default meta;
 type Story = StoryObj<ButtonProps>;
 
-/**
- * デフォルトのボタンを表示する基本ストーリー
- */
 export const Default: Story = {
   render: (args) => {
     return createButton(args);
@@ -125,9 +122,6 @@ export const OutlineButtons: Story = {
   },
 };
 
-/**
- * ブロック幅のボタンを表示するストーリー
- */
 export const BlockButton: Story = {
   render: () => {
     const container = document.createElement("div");
@@ -185,9 +179,6 @@ export const RoundedButton: Story = {
   },
 };
 
-/**
- * 無効化されたボタンを表示するストーリー
- */
 export const DisabledButton: Story = {
   render: () => {
     const container = document.createElement("div");

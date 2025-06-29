@@ -14,9 +14,6 @@ export interface LabelProps {
   userSelect?: string;
 }
 
-/**
- * チェックボックス要素を作成する
- */
 export function createCheckbox(props: CheckboxProps = {}): HTMLInputElement {
   const {
     name = "checkbox",
@@ -42,9 +39,6 @@ export function createCheckbox(props: CheckboxProps = {}): HTMLInputElement {
   return checkbox;
 }
 
-/**
- * ラベル要素を作成する
- */
 export function createLabel(props: LabelProps): HTMLLabelElement {
   const {
     text,
@@ -62,9 +56,6 @@ export function createLabel(props: LabelProps): HTMLLabelElement {
   return label;
 }
 
-/**
- * チェックボックスとラベルをセットで作成し、コンテナに配置する
- */
 export function createCheckboxWithLabel(
   checkboxProps: CheckboxProps & { id: string },
   labelText: string

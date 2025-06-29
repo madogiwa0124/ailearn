@@ -46,7 +46,6 @@ export const createColorElement: CreatePropertyElement = (property) => {
   const colorElement = document.createElement("div");
   const text = document.createElement("span");
   text.textContent = `${property.name}: ${property.value}`;
-  // text.style.mixBlendMode = "difference";
   text.style.color = property.value;
   text.style.filter = "invert(100%) grayscale(100%) contrast(100)";
   colorElement.classList.add("color-variable");
@@ -87,9 +86,8 @@ export const createTypographyElement: CreatePropertyElement = (property) => {
   typographyElement.style.margin = "0.5rem";
   typographyElement.style.backgroundColor = "#fafafa";
 
-  // プロパティ名と値を表示（px値とrem換算値を併記）
   const propertyInfo = document.createElement("div");
-  const remValue = convertPxToRem(property.value, 16); // 16pxを基準とする
+  const remValue = convertPxToRem(property.value, 16);
   let valueDisplay = `${property.name}: ${property.value}`;
   if (remValue && remValue !== property.value) {
     valueDisplay += ` (${remValue})`;
@@ -99,11 +97,9 @@ export const createTypographyElement: CreatePropertyElement = (property) => {
   propertyInfo.style.color = "#666";
   propertyInfo.style.fontFamily = "monospace";
 
-  // サンプルテキスト
   const sampleText = document.createElement("div");
   sampleText.textContent = "サンプルテキスト Sample Text 123";
 
-  // プロパティタイプに応じてスタイルを適用
   if (property.name.includes("font-size")) {
     sampleText.style.fontSize = property.value;
   } else if (property.name.includes("font-weight")) {
@@ -132,7 +128,6 @@ export const createShadowElement: CreatePropertyElement = (property) => {
   shadowElement.style.borderRadius = "0.5rem";
   shadowElement.style.border = "1px solid #e0e0e0";
 
-  // プロパティ名と値を表示
   const propertyInfo = document.createElement("div");
   propertyInfo.textContent = `${property.name}: ${property.value}`;
   propertyInfo.style.fontSize = "0.875rem";
@@ -140,7 +135,6 @@ export const createShadowElement: CreatePropertyElement = (property) => {
   propertyInfo.style.fontFamily = "monospace";
   propertyInfo.style.marginBottom = "1rem";
 
-  // シャドウのサンプル要素
   const sampleBox = document.createElement("div");
   sampleBox.textContent = "Shadow Sample";
   sampleBox.style.padding = "1.5rem";
@@ -166,7 +160,6 @@ export const createCornerElement: CreatePropertyElement = (property) => {
   cornerElement.style.backgroundColor = "#ffffff";
   cornerElement.style.border = "1px solid #e0e0e0";
 
-  // プロパティ名と値を表示
   const propertyInfo = document.createElement("div");
   propertyInfo.textContent = `${property.name}: ${property.value}`;
   propertyInfo.style.fontSize = "0.875rem";
@@ -174,7 +167,6 @@ export const createCornerElement: CreatePropertyElement = (property) => {
   propertyInfo.style.fontFamily = "monospace";
   propertyInfo.style.marginBottom = "1rem";
 
-  // コーナー（border-radius）のサンプル要素
   const sampleBox = document.createElement("div");
   sampleBox.textContent = "Corner Sample";
   sampleBox.style.padding = "1.5rem";
@@ -190,7 +182,6 @@ export const createCornerElement: CreatePropertyElement = (property) => {
   return cornerElement;
 };
 
-// pxをremに変換するヘルパー関数
 const convertPxToRem = (
   value: string,
   rootFontSize: number,
