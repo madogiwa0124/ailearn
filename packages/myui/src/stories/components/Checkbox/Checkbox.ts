@@ -40,12 +40,7 @@ export function createCheckbox(props: CheckboxProps = {}): HTMLInputElement {
 }
 
 export function createLabel(props: LabelProps): HTMLLabelElement {
-  const {
-    text,
-    htmlFor,
-    cursor = "pointer",
-    userSelect = "none",
-  } = props;
+  const { text, htmlFor, cursor = "pointer", userSelect = "none" } = props;
 
   const label = document.createElement("label");
   label.htmlFor = htmlFor;
@@ -58,7 +53,7 @@ export function createLabel(props: LabelProps): HTMLLabelElement {
 
 export function createCheckboxWithLabel(
   checkboxProps: CheckboxProps & { id: string },
-  labelText: string
+  labelText: string,
 ): HTMLDivElement {
   const container = document.createElement("div");
   container.style.display = "flex";
