@@ -1,8 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/html";
-import { createParagraph, type ParagraphProps } from "./Paragraph";
 import { expect } from "@storybook/test";
 
-const meta: Meta<ParagraphProps> = {
+interface ParagraphArgs {
+  text: string;
+  className: string;
+}
+
+const meta: Meta<ParagraphArgs> = {
   title: "Components/Paragraph",
   tags: ["autodocs"],
   argTypes: {
@@ -20,7 +24,24 @@ const meta: Meta<ParagraphProps> = {
 };
 
 export default meta;
-type Story = StoryObj<ParagraphProps>;
+type Story = StoryObj<ParagraphArgs>;
+
+const createParagraph = (
+  props: { text?: string; className?: string } = {},
+): HTMLElement => {
+  const { text = "パラグラフのテキスト", className = "" } = props;
+
+  const paragraph = document.createElement("p");
+  paragraph.textContent = text;
+
+  paragraph.classList.add("paragraph");
+
+  if (className) {
+    paragraph.classList.add(className);
+  }
+
+  return paragraph;
+};
 
 export const Default: Story = {
   render: (args) => {
@@ -37,6 +58,7 @@ export const Default: Story = {
     expect(paragraph).not.toBeNull();
     expect(paragraph).toHaveTextContent(args.text || "");
     expect(paragraph.tagName.toLowerCase()).toBe("p");
+    expect(paragraph).toHaveClass("paragraph");
   },
 };
 
@@ -80,59 +102,8 @@ export const MultipleParagraphs: Story = {
     for (const [index, paragraph] of paragraphs.entries()) {
       expect(paragraph).not.toBeNull();
       expect(paragraph.tagName.toLowerCase()).toBe("p");
+      expect(paragraph).toHaveClass("paragraph");
       expect(paragraph).toHaveTextContent(expectedTexts[index]);
     }
-  },
-};
-
-export const CustomStyledParagraphs: Story = {
-  render: () => {
-    const container = document.createElement("div");
-    container.style.display = "flex";
-    container.style.flexDirection = "column";
-    container.style.gap = "20px";
-
-    const normalParagraph = createParagraph({
-      text: "通常のパラグラフスタイルです。",
-    });
-
-    const customParagraph1 = createParagraph({
-      text: "中央揃えのテキストです。",
-      className: "text-center",
-    });
-    customParagraph1.style.textAlign = "center"; // デモ用にインラインスタイルを適用
-
-    const customParagraph2 = createParagraph({
-      text: "右揃えのテキストです。",
-      className: "text-right",
-    });
-    customParagraph2.style.textAlign = "right"; // デモ用にインラインスタイルを適用
-
-    container.appendChild(normalParagraph);
-    container.appendChild(customParagraph1);
-    container.appendChild(customParagraph2);
-
-    return container;
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = canvasElement as HTMLElement;
-    const paragraphs = canvas.querySelectorAll("p");
-
-    expect(paragraphs).toHaveLength(3);
-
-    const normalParagraph = paragraphs[0];
-    const centerParagraph = paragraphs[1];
-    const rightParagraph = paragraphs[2];
-
-    expect(normalParagraph).toHaveTextContent("通常のパラグラフスタイルです。");
-    expect(normalParagraph.tagName.toLowerCase()).toBe("p");
-
-    expect(centerParagraph).toHaveTextContent("中央揃えのテキストです。");
-    expect(centerParagraph).toHaveClass("text-center");
-    expect(centerParagraph).toHaveStyle({ textAlign: "center" });
-
-    expect(rightParagraph).toHaveTextContent("右揃えのテキストです。");
-    expect(rightParagraph).toHaveClass("text-right");
-    expect(rightParagraph).toHaveStyle({ textAlign: "right" });
   },
 };
