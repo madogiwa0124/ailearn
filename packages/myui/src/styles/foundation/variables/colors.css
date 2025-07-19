@@ -41,6 +41,12 @@
   inherits: true;
 }
 
+@property --color-border {
+  syntax: "<color>";
+  initial-value: #ddd;
+  inherits: true;
+}
+
 /* テキスト色 */
 @property --color-text {
   syntax: "<color>";

@@ -1,0 +1,31 @@
+.card {
+  --card-floating-shadow: var(--shadow-sm);
+  --card-radius: var(--border-radius);
+  --card-bg-color: var(--color-bg-light);
+  --card-border-color: var(--color-border);
+  --card-content-padding: var(--spacing-2);
+
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--card-border-color);
+  border-radius: var(--card-radius);
+  word-wrap: break-word;
+
+  .card__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .card__content {
+    padding: var(--card-content-padding);
+  }
+
+  &.--floating {
+    box-shadow: var(--card-floating-shadow);
+
+    &:hover {
+      box-shadow: initial;
+      transition: box-shadow 0.2s ease;
+    }
+  }
+}
