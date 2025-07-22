@@ -1,0 +1,78 @@
+.select {
+  --select-padding: var(--spacing-3);
+  --select-checkmark-gap: var(--spacing-4);
+  --select-bg-color: var(--color-bg-light);
+  --select-border: 2px solid var(--select-border-color);
+  --select-invalid-border-color: var(--color-danger);
+  --select-hover-opacity: 0.8;
+  --select-disabled-opacity: 0.65;
+  --select-option-padding: var(--spacing-2);
+  --select-option-checked-bg-color: var(--color-tertiary);
+  --select-option-checked-text-color: var(--color-text-light);
+
+  appearance: base-select;
+  display: inline-flex;
+  padding: var(--select-padding);
+  gap: var(--select-checkmark-gap);
+  border: var(--select-border);
+  background-color: var(--select-bg-color);
+
+  &:hover,
+  &:focus {
+    opacity: var(--select-hover-opacity);
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--select-disabled-opacity);
+  }
+
+  &:invalid {
+    border-color: var(--select-invalid-border-color);
+  }
+
+  &::picker(select) {
+    appearance: base-select;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-border);
+  }
+
+  &::picker-icon {
+    appearance: none;
+    content: "";
+    width: 0.5em;
+    height: 0.5em;
+    border: 0.2em solid var(--color-border);
+    border-top: 0;
+    border-right: 0;
+    /* NOTE: Adjust the transform values to fine-tune the icon position */
+    transform: rotate(-45deg) translateX(-0.3em) translateY(0.1em);
+  }
+
+  &:open {
+    &::picker-icon {
+      /* NOTE: Adjust the transform values to fine-tune the icon position */
+      transform: rotate(135deg) translateX(0.3em) translateY(-0.1em);
+    }
+  }
+
+  option {
+    padding: var(--select-option-padding);
+
+    &:hover {
+      opacity: var(--select-hover-opacity);
+      cursor: pointer;
+    }
+
+    &:checked {
+      background-color: var(--select-option-checked-bg-color);
+      color: var(--select-option-checked-text-color);
+    }
+
+    &::checkmark,
+    &::before {
+      display: none;
+    }
+  }
+}

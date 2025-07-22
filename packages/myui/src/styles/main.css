@@ -22,6 +22,7 @@
 @import "./components/checkbox.css" layer(components);
 @import "./components/radio.css" layer(components);
 @import "./components/card.css" layer(components);
+@import "./components/select.css" layer(components);
 
 /* ユーティリティレイヤー: ヘルパークラスなど */
 @import "./utils/visibility.css" layer(utils);
