@@ -66,6 +66,12 @@
   inherits: true;
 }
 
+@property --color-text-gray {
+  syntax: "<color>";
+  initial-value: #d6d6d6;
+  inherits: true;
+}
+
 /* 背景色 */
 @property --color-bg-light {
   syntax: "<color>";

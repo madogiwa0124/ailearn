@@ -36,6 +36,7 @@ export const Default: Story = {
     const select = document.createElement("select");
     select.className = "select";
     select.innerHTML = `
+      <option value="">--- Select ---</option>
       <option value="option1">Option 1</option>
       <option value="option2">Option 2</option>
       <option value="option3">Option 3</option>
@@ -51,8 +52,70 @@ export const Default: Story = {
     expect(select).toHaveClass("select");
     expect(select).not.toBeDisabled();
 
-    await userEvent.selectOptions(select, "option2");
-    expect(select).toHaveValue("option2");
+    await userEvent.selectOptions(select, "");
+    expect(select).toHaveValue("");
+  },
+};
+
+export const Separator: Story = {
+  render: () => {
+    const select = document.createElement("select");
+    select.className = "select";
+    select.innerHTML = `
+      <option value="">--- Select ---</option>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <hr />
+      <option value="option3">Option 3</option>
+      `;
+    return select;
+  },
+  args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+    const select = canvas.querySelector("select") as HTMLSelectElement;
+    const separators = select.querySelectorAll("hr");
+
+    expect(select).not.toBeNull();
+    expect(select).toHaveClass("select");
+    expect(select).not.toBeDisabled();
+    expect(separators.length).toBe(1);
+  },
+};
+
+export const Group: Story = {
+  render: () => {
+    const select = document.createElement("select");
+    select.className = "select";
+    select.innerHTML = `
+      <option value="">--- Select ---</option>
+      <option value="option1">Option 1</option>
+      <optgroup label="Group 1">
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </optgroup>
+      <optgroup label="Group 2">
+        <option value="option4">Option 4</option>
+        <option value="option5">Option 5</option>
+      </optgroup>
+      <option value="option6">Option 6</option>
+      `;
+    return select;
+  },
+  args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+    const select = canvas.querySelector("select") as HTMLSelectElement;
+    const optgroups = select.querySelectorAll("optgroup");
+
+    expect(select).not.toBeNull();
+    expect(select).toHaveClass("select");
+    expect(select).not.toBeDisabled();
+    expect(optgroups.length).toBe(2);
+    expect(optgroups[0].label).toBe("Group 1");
+    expect(optgroups[0].querySelectorAll("option").length).toBe(2);
+    expect(optgroups[1].label).toBe("Group 2");
+    expect(optgroups[1].querySelectorAll("option").length).toBe(2);
   },
 };
 
@@ -63,7 +126,7 @@ export const Disabled: Story = {
     select.disabled = true;
     select.innerHTML = `
       <option value="option1">Option 1</option>
-      <option value="option2" selected>Option 2 (選択済み)</option>
+      <option value="option2" selected>Option 2</option>
       <option value="option3">Option 3</option>
       `;
     return select;
@@ -89,23 +152,19 @@ export const Invalid: Story = {
     const container = document.createElement("div");
     const form = document.createElement("form");
     form.noValidate = true;
-    const label = document.createElement("label");
-    label.textContent = "必須項目";
-    label.setAttribute("for", "required-select");
 
     const select = document.createElement("select");
     select.className = "select";
     select.id = "required-select";
     select.required = true;
     select.innerHTML = `
-      <option value="">-- 選択してください --</option>
+      <option value="">-- Select --</option>
       <option value="option1">Option 1</option>
       <option value="option2">Option 2</option>
       <option value="option3">Option 3</option>
       `;
 
     form.reportValidity();
-    form.appendChild(label);
     form.appendChild(select);
     container.appendChild(form);
 

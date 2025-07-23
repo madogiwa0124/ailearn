@@ -2,10 +2,12 @@
   --select-padding: var(--spacing-3);
   --select-checkmark-gap: var(--spacing-4);
   --select-bg-color: var(--color-bg-light);
+  --select-border-color: var(--color-border);
   --select-border: 2px solid var(--select-border-color);
   --select-invalid-border-color: var(--color-danger);
   --select-hover-opacity: 0.8;
   --select-disabled-opacity: 0.65;
+  --select-optgroup-bg-color: var(--color-text-gray);
   --select-option-padding: var(--spacing-2);
   --select-option-checked-bg-color: var(--color-tertiary);
   --select-option-checked-text-color: var(--color-text-light);
@@ -57,12 +59,18 @@
     }
   }
 
+  optgroup {
+    background-color: var(--select-optgroup-bg-color);
+  }
+
   option {
     padding: var(--select-option-padding);
+    background-color: var(--select-bg-color);
 
     &:hover {
       opacity: var(--select-hover-opacity);
       cursor: pointer;
+      background-color: hsl(from var(--select-bg-color) h s calc(l * 0.9));
     }
 
     &:checked {
@@ -74,5 +82,12 @@
     &::before {
       display: none;
     }
+  }
+
+  hr {
+    height: 1px;
+    border: none;
+    background-color: var(--select-border-color);
+    margin: var(--spacing-2) 0;
   }
 }
