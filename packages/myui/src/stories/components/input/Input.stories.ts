@@ -4,7 +4,18 @@ import { expect } from "@storybook/test";
 const meta: Meta = {
   title: "Components/Input",
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    placeholder: { control: "text" },
+    inputType: {
+      control: {
+        type: "select",
+      },
+      options: ["text", "email", "password", "number", "date", "color", "file"],
+    },
+    block: { control: "boolean" },
+    disabled: { control: "boolean" },
+    onInput: { action: "input" },
+  },
   parameters: {
     docs: {
       description: {
@@ -39,12 +50,26 @@ export default meta;
 type Story = StoryObj;
 
 export const Default: Story = {
-  render: () => {
+  render: (args) => {
     const input = document.createElement("input");
     input.className = "input";
+    input.classList.toggle("--block", args.block);
+    input.placeholder = args.placeholder;
+    input.type = args.inputType;
+    input.disabled = args.disabled;
+    input.addEventListener("input", (event) => {
+      const target = event.target as HTMLInputElement;
+      args.onInput(target.value);
+    });
+
     return input;
   },
-  args: {},
+  args: {
+    placeholder: "Type something...",
+    inputType: "text",
+    block: false,
+    disabled: false,
+  },
   play: async ({ canvasElement }) => {
     const canvas = canvasElement as HTMLElement;
     const input = canvas.querySelector("input") as HTMLInputElement;
@@ -156,5 +181,22 @@ export const Placeholder: Story = {
 
     expect(input).not.toBeNull();
     expect(input).toHaveClass("input");
+  },
+};
+
+export const Block: Story = {
+  render: () => {
+    const input = document.createElement("input");
+    input.className = "input --block";
+    input.placeholder = "Block level input";
+    return input;
+  },
+  args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+    const input = canvas.querySelector("input") as HTMLInputElement;
+
+    expect(input).not.toBeNull();
+    expect(input).toHaveClass("input --block");
   },
 };

@@ -35,4 +35,9 @@
   &:invalid {
     border-color: var(--input-invalid-border-color);
   }
+
+  &.--block {
+    display: block;
+    width: 100%;
+  }
 }
