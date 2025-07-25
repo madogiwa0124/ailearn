@@ -10,8 +10,8 @@ const meta: Meta<ButtonProps> = {
     variant: {
       control: {
         type: "select",
-        options: ["primary", "secondary", "success", "danger", "warning"],
       },
+      options: ["primary", "secondary", "success", "danger", "warning"],
     },
     outline: { control: "boolean" },
     block: { control: "boolean" },
