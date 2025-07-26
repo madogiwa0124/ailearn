@@ -24,6 +24,7 @@
 @import "./components/card.css" layer(components);
 @import "./components/select.css" layer(components);
 @import "./components/input.css" layer(components);
+@import "./components/textarea.css" layer(components);
 
 /* ユーティリティレイヤー: ヘルパークラスなど */
 @import "./utils/visibility.css" layer(utils);

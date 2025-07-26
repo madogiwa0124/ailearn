@@ -1,0 +1,47 @@
+.textarea {
+  --textarea-border-radius: var(--border-radius-sm);
+  --textarea-border-color: var(--color-border);
+  --textarea-border: 1px solid var(--textarea-border-color);
+  --textarea-bg-color: var(--color-bg-light);
+  --textarea-placeholder-color: var(--color-text-muted);
+  --textarea-hover-opacity: 0.8;
+  --textarea-disabled-opacity: 0.65;
+  --textarea-disabled-color: var(--color-text-muted);
+  --textarea-invalid-border-color: var(--color-danger);
+
+  appearance: none;
+  border-radius: var(--textarea-border-radius);
+  border: var(--textarea-border);
+  background-color: var(--textarea-bg-color);
+  padding: var(--spacing-2);
+
+  &:hover,
+  &:focus {
+    opacity: var(--textarea-hover-opacity);
+    border-color: var(--textarea-hover-border-color);
+  }
+
+  &::placeholder {
+    color: var(--textarea-placeholder-color);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--textarea-disabled-opacity);
+    color: var(--textarea-disabled-color);
+    border-color: initial;
+  }
+
+  &:invalid {
+    border-color: var(--textarea-invalid-border-color);
+  }
+
+  &.--block {
+    display: block;
+    width: 100%;
+  }
+
+  &.--auto-fit {
+    field-sizing: content;
+  }
+}
