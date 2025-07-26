@@ -25,6 +25,7 @@
 @import "./components/select.css" layer(components);
 @import "./components/input.css" layer(components);
 @import "./components/textarea.css" layer(components);
+@import "./components/label.css" layer(components);
 
 /* ユーティリティレイヤー: ヘルパークラスなど */
 @import "./utils/visibility.css" layer(utils);

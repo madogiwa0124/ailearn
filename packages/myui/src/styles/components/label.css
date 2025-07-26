@@ -1,0 +1,12 @@
+.label {
+  --label-display: block;
+  --label-font-weight: var(--font-weight-medium);
+  --label-spacing-bottom: var(--spacing-1);
+
+  display: var(--label-display);
+  font-weight: var(--label-font-weight);
+
+  &:not(:last-child) {
+    margin-bottom: var(--label-spacing-bottom);
+  }
+}
