@@ -1,0 +1,59 @@
+input[type="checkbox"].toggle {
+  --toggle-size: 1.2em;
+  --toggle-transition: 0.1s ease;
+  --toggle-width: calc(var(--toggle-size) * 1.8);
+  --toggle-checked-translate-x: calc(var(--toggle-size) * 0.8);
+  --toggle-bg-color: var(--color-dark);
+  --toggle-bg-color-checked: var(--color-tertiary);
+  --toggle-button-color: var(--color-light);
+  --toggle-button-scale: 0.8;
+  --toggle-lighter-brightness: 150%;
+  --toggle-disabled-opacity: 0.5;
+
+  appearance: none;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  width: var(--toggle-width);
+  height: var(--toggle-size);
+  border-radius: var(--border-radius-full);
+  background-color: var(--toggle-bg-color);
+  transition: var(--toggle-transition);
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+    border-radius: var(--border-radius-full);
+    transform: scale(var(--toggle-button-scale));
+    background-color: var(--toggle-button-color);
+    transition: inherit;
+  }
+
+  &:checked {
+    background-color: var(--toggle-bg-color-checked);
+
+    &::before {
+      transform: translateX(var(--toggle-checked-translate-x))
+        scale(var(--toggle-button-scale));
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--toggle-disabled-opacity);
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    filter: brightness(var(--toggle-lighter-brightness));
+
+    &:disabled {
+      filter: none;
+    }
+  }
+}
