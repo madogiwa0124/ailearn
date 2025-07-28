@@ -1,9 +1,11 @@
 /* ボタン基本スタイル */
 .btn {
   /* Color */
+  --btn-color-default: var(--color-bg-grey);
   --btn-color-primary: var(--color-primary);
   --btn-color-secondary: var(--color-secondary);
   --btn-color-tertiary: var(--color-tertiary);
+  --btn-text-color-default: var(--color-text);
   --btn-text-color-primary: var(--color-text-light);
   --btn-text-color-secondary: var(--color-text-light);
   --btn-text-color-tertiary: var(--color-text-light);
@@ -34,6 +36,8 @@
   border-radius: var(--btn-border-radius);
   cursor: pointer;
   box-shadow: var(--btn-box-shadow);
+  color: var(--btn-text-color-default);
+  background-color: var(--btn-color-default);
 
   &:hover,
   &:focus,
@@ -78,6 +82,16 @@
     transition: background-color 0.2s ease;
     background-color: transparent;
     border: 2px solid transparent;
+
+    &.--default {
+      color: var(--btn-color-default);
+      border-color: var(--btn-color-default);
+
+      &:hover {
+        color: var(--btn-text-color-default);
+        background-color: var(--btn-color-default);
+      }
+    }
 
     &.--primary {
       color: var(--btn-color-primary);

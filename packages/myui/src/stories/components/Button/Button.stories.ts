@@ -37,7 +37,6 @@ export const Default: Story = {
   },
   args: {
     label: "Button",
-    variant: "primary",
     outline: false,
     block: false,
     disabled: false,
@@ -93,6 +92,7 @@ export const OutlineButtons: Story = {
     container.style.gap = "10px";
 
     const variants: Array<ButtonProps["variant"]> = [
+      "default",
       "primary",
       "secondary",
       "tertiary",

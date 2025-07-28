@@ -1,6 +1,6 @@
 export interface ButtonProps {
   label?: string;
-  variant?: "primary" | "secondary" | "tertiary";
+  variant?: "primary" | "secondary" | "tertiary" | "default";
   outline?: boolean;
   block?: boolean;
   disabled?: boolean;
@@ -12,7 +12,7 @@ export interface ButtonProps {
 export const createButton = (props: ButtonProps = {}): HTMLButtonElement => {
   const {
     label = "Button",
-    variant = "primary",
+    variant = "",
     outline = false,
     block = false,
     disabled = false,
