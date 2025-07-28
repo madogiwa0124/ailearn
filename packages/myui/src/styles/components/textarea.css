@@ -1,4 +1,4 @@
-.textarea {
+textarea.textarea {
   --textarea-border-radius: var(--border-radius-sm);
   --textarea-border-color: var(--color-border);
   --textarea-border: 1px solid var(--textarea-border-color);

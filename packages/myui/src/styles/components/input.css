@@ -1,4 +1,4 @@
-.input {
+input.input {
   --input-border-radius: var(--border-radius-sm);
   --input-border-color: var(--color-border);
   --input-border: 1px solid var(--input-border-color);
