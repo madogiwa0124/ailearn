@@ -4,7 +4,7 @@ input[type="checkbox"].toggle {
   --toggle-width: calc(var(--toggle-size) * 1.8);
   --toggle-checked-translate-x: calc(var(--toggle-size) * 0.8);
   --toggle-bg-color: var(--color-dark);
-  --toggle-bg-color-checked: var(--color-tertiary);
+  --toggle-bg-color-checked: var(--color-primary);
   --toggle-button-color: var(--color-light);
   --toggle-button-scale: 0.8;
   --toggle-lighter-brightness: 150%;
