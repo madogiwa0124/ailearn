@@ -9,6 +9,7 @@
 @import "./border.css";
 @import "./shadow.css";
 @import "./typography.css";
+@import "./zindex.css";
 
 /* フォントサイズ */
 :root {

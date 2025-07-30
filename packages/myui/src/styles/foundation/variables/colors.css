@@ -79,8 +79,20 @@
   inherits: true;
 }
 
+@property --color-bg-grey {
+  syntax: "<color>";
+  initial-value: #a0a0a0;
+  inherits: true;
+}
+
 @property --color-bg-dark {
   syntax: "<color>";
   initial-value: #212529;
+  inherits: true;
+}
+
+@property --color-overlay {
+  syntax: "<color>";
+  initial-value: rgba(0, 0, 0, 0.5);
   inherits: true;
 }
