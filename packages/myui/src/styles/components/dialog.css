@@ -1,0 +1,54 @@
+dialog.dialog {
+  --dialog-bg-color: var(--color-bg-light);
+  --dialog-zindex: var(--zindex-modal);
+  --dialog-padding: var(--spacing-3);
+  --dialog-border-radius: var(--border-radius-sm);
+  --dialog-box-shadow: var(--shadow-lg);
+  --dialog-content-gap: var(--spacing-2);
+  --dialog-backdrop-bg-color: var(--color-overlay);
+  --dialog-backdrop-blur: blur(4px);
+  --dialog-transition-duration: 0.2s;
+  --dialog-transition-transform-start: translateY(20%);
+
+  background-color: var(--dialog-bg-color);
+  z-index: var(--dialog-zindex);
+  padding: var(--dialog-padding);
+  border-radius: var(--dialog-border-radius);
+  pointer-events: none;
+  box-shadow: var(--dialog-box-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--dialog-content-gap);
+  overflow-wrap: break-word;
+
+  &[open] {
+    pointer-events: all;
+  }
+
+  &:not([open]) {
+    display: none;
+  }
+
+  &::backdrop {
+    background-color: var(--dialog-backdrop-bg-color);
+  }
+
+  &.--backdrop-blur {
+    &::backdrop {
+      backdrop-filter: var(--dialog-backdrop-blur);
+    }
+  }
+
+  &.--transition {
+    &[open] {
+      transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+      transform: translateY(0);
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+        transform: var(--dialog-transition-transform-start);
+      }
+    }
+  }
+}
