@@ -28,6 +28,7 @@
 @import "./components/label.css" layer(components);
 @import "./components/toggle.css" layer(components);
 @import "./components/dialog.css" layer(components);
+@import "./components/tabs.css" layer(components);
 
 /* ユーティリティレイヤー: ヘルパークラスなど */
 @import "./utils/visibility.css" layer(utils);
