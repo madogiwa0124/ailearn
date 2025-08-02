@@ -9,6 +9,10 @@ const meta: Meta = {
       control: { type: "boolean" },
       description: "Enable transition effects on tab hover.",
     },
+    scrollhint: {
+      control: { type: "boolean" },
+      description: "Enable scroll hint effects on tab list.",
+    },
   },
   parameters: {
     docs: {
@@ -29,6 +33,7 @@ export const Default: Story = {
     const nav = document.createElement("nav");
     nav.className = "tabs";
     if (args.transition) nav.classList.add("--transition");
+    if (args.scrollhint) nav.classList.add("--scrollhint");
     nav.innerHTML = `
       <div class="tabs__list" role="tablist">
         <button class="tabs__item --active" role="tab" aria-selected="true" aria-controls="panel-1" tabindex="0">Active Tab</button>
@@ -52,6 +57,7 @@ export const Default: Story = {
   },
   args: {
     transition: false,
+    scrollhint: false,
   },
   play: async ({ canvasElement }) => {
     const canvas = canvasElement as HTMLElement;
