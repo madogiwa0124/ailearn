@@ -1,0 +1,99 @@
+.snackbar {
+  --snackbar-position-x: var(--spacing-4);
+  --snackbar-position-y: var(--spacing-4);
+  --snackbar-zindex: var(--zindex-snackbar);
+  --snackbar-margin-for-small-screens: var(--spacing-2);
+  --snackbar-bg-color: var(--color-primary);
+  --snackbar-text-color: var(--color-text-light);
+  --snackbar-border-radius: var(--border-radius-sm);
+  --snackbar-box-shadow: var(--shadow-md);
+  --snackbar-inner-spacing: var(--spacing-3);
+  --snackbar-action-spacing: var(--spacing-2);
+  --snackbar-transition-duration: 0.2s;
+
+  position: fixed;
+  bottom: var(--snackbar-position-y);
+  left: var(--snackbar-position-x);
+  top: auto;
+  right: auto;
+  margin: 0;
+  padding: 0;
+  box-shadow: var(--snackbar-box-shadow);
+  z-index: var(--snackbar-zindex);
+
+  .snackbar__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--snackbar-bg-color);
+    color: var(--snackbar-text-color);
+    border-radius: var(--snackbar-border-radius);
+    padding: var(--snackbar-inner-spacing);
+    gap: var(--snackbar-inner-spacing);
+    inline-size: fit-content;
+
+    .snackbar__actions {
+      display: flex;
+      align-items: center;
+      gap: var(--snackbar-action-spacing);
+    }
+  }
+
+  &::backdrop {
+    display: none;
+  }
+
+  &.--transition {
+    &:popover-open,
+    &:popover-open::backdrop {
+      transition: opacity var(--snackbar-transition-duration) ease;
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.--right-bottom {
+    right: var(--snackbar-position-x);
+    bottom: var(--snackbar-position-y);
+    top: auto;
+    left: auto;
+  }
+
+  &.--left-top {
+    right: auto;
+    bottom: auto;
+    top: var(--snackbar-position-y);
+    left: var(--snackbar-position-x);
+  }
+
+  &.--right-top {
+    right: var(--snackbar-position-x);
+    bottom: auto;
+    top: var(--snackbar-position-y);
+    left: auto;
+  }
+
+  /* TODO: custom-media queries */
+  @media screen and (width < 480px) {
+    margin-inline: var(--snackbar-margin-for-small-screens);
+    left: auto;
+    top: auto;
+    right: auto;
+
+    &.--right-bottom {
+      left: auto;
+      top: auto;
+      right: auto;
+    }
+
+    &.--left-top,
+    &.--right-top {
+      bottom: auto;
+      left: auto;
+      right: auto;
+    }
+  }
+}

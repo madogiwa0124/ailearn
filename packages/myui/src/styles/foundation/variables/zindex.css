@@ -9,3 +9,9 @@
   initial-value: 1050;
   inherits: true;
 }
+
+@property --zindex-snackbar {
+  syntax: "<integer>";
+  initial-value: 100;
+  inherits: true;
+}
