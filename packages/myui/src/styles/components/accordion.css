@@ -1,0 +1,89 @@
+.accordion {
+  --accordion-summary-padding: var(--spacing-3) 0 var(--spacing-3) 0;
+  --accordion-summary-font-weight: var(--font-weight-bold);
+  --accordion-summary-icon-gap: var(--spacing-2);
+  --accordion-summary-icon-size: 0.6rem;
+  --accordion-summary-icon-color: var(--color-text);
+  --accordion-summary-icon-clip-path: polygon(0 0, 100% 50%, 0 100%);
+  --accordion-summary-icon-open-transform: rotate(90deg);
+  --accordion-content-padding: 0 var(--spacing-3) var(--spacing-3)
+    var(--spacing-3);
+  --accordion-outline-border: 1px solid var(--color-border);
+  --accordion-outline-border-radius: var(--border-radius);
+  --accordion-outline-padding: 0 var(--spacing-2) 0 var(--spacing-2);
+  --accordion-transition-time: 0.2s;
+
+  .accordion__summary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: var(--accordion-summary-font-weight);
+    padding: var(--accordion-summary-padding);
+    gap: var(--accordion-summary-icon-gap);
+
+    &::before {
+      content: "";
+      height: var(--accordion-summary-icon-size);
+      width: var(--accordion-summary-icon-size);
+      background-color: var(--accordion-summary-icon-color);
+      clip-path: var(--accordion-summary-icon-clip-path);
+    }
+
+    /*
+      NOTE: Hide default marker for Safari
+      https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/summary#default_style
+    */
+    &:-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  .accordion__content,
+  &::details-content {
+    block-size: 0;
+    opacity: 0;
+    content-visibility: hidden;
+  }
+
+  &[open] {
+    .accordion__summary::before {
+      transform: var(--accordion-summary-icon-open-transform);
+    }
+
+    .accordion__content {
+      padding: var(--accordion-content-padding);
+    }
+
+    .accordion__content,
+    &::details-content {
+      block-size: auto;
+      opacity: 1;
+      content-visibility: visible;
+    }
+  }
+
+  &.--outline {
+    padding: var(--accordion-outline-padding);
+    border: var(--accordion-outline-border);
+    border-radius: var(--accordion-outline-border-radius);
+  }
+
+  &.--transition {
+    /* NOTE:
+      Using interpolate-size to enable transitions even with block-size: auto
+      https://developer.mozilla.org/en-US/docs/Web/CSS/interpolate-size
+    */
+    /* biome-ignore lint/correctness/noUnknownProperty: allow-keywords is a valid property */
+    interpolate-size: allow-keywords;
+
+    .accordion__summary::before {
+      transition: transform var(--accordion-transition-time) ease;
+    }
+    .accordion__content,
+    &::details-content {
+      transition: block-size var(--accordion-transition-time) ease, opacity
+        var(--accordion-transition-time) ease, content-visibility
+        var(--accordion-transition-time) allow-discrete;
+    }
+  }
+}

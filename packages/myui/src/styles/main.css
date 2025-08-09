@@ -30,6 +30,7 @@
 @import "./components/dialog.css" layer(components);
 @import "./components/tabs.css" layer(components);
 @import "./components/snackbar.css" layer(components);
+@import "./components/accordion.css" layer(components);
 
 /* ユーティリティレイヤー: ヘルパークラスなど */
 @import "./utils/visibility.css" layer(utils);
