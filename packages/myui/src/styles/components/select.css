@@ -4,19 +4,17 @@ select.select {
   --select-bg-color: var(--color-bg-light);
   --select-border-color: var(--color-border);
   --select-border: 2px solid var(--select-border-color);
+  --select-border-radius: var(--border-radius-sm);
   --select-invalid-border-color: var(--color-danger);
   --select-hover-opacity: 0.8;
   --select-disabled-opacity: 0.65;
-  --select-optgroup-bg-color: var(--color-text-gray);
-  --select-option-padding: var(--spacing-2);
-  --select-option-checked-bg-color: var(--color-tertiary);
-  --select-option-checked-text-color: var(--color-text-light);
 
-  appearance: base-select;
+  appearance: none;
   display: inline-flex;
   padding: var(--select-padding);
   gap: var(--select-checkmark-gap);
   border: var(--select-border);
+  border-radius: var(--select-border-radius);
   background-color: var(--select-bg-color);
 
   &:hover,
@@ -34,60 +32,90 @@ select.select {
     border-color: var(--select-invalid-border-color);
   }
 
-  &::picker(select) {
-    appearance: base-select;
-    border-radius: var(--border-radius-sm);
-    border: 1px solid var(--color-border);
-  }
-
-  &::picker-icon {
-    appearance: none;
-    content: "";
-    width: 0.5em;
-    height: 0.5em;
-    border: 0.2em solid var(--color-border);
-    border-top: 0;
-    border-right: 0;
+  /*
+    NOTE: modern customizable select
+    https://developer.mozilla.org/ja/docs/Learn_web_development/Extensions/Forms/Customizable_select
+  */
+  @supports (appearance: base-select) {
+    --select-picker-border: 1px solid var(--color-border);
+    --select-picker-icon-border: 0.2em solid var(--select-border-color);
+    --select-picker-icon-size: 0.5em;
+    --select-picker-icon-transform-rotate-closed: -45deg;
+    --select-picker-icon-transform-rotate-open: 135deg;
     /* NOTE: Adjust the transform values to fine-tune the icon position */
-    transform: rotate(-45deg) translateX(-0.3em) translateY(0.1em);
-  }
+    --select-picker-icon-transform-translate-y: 0.1em;
+    --select-picker-icon-transform-translate-x: 0.3em;
+    --select-optgroup-bg-color: var(--color-text-gray);
+    --select-option-padding: var(--spacing-2);
+    --select-option-checked-bg-color: var(--color-tertiary);
+    --select-option-checked-text-color: var(--color-text-light);
+    --select-option-hover-darker-rate: 0.9;
+    --select-separator-color: var(--color-border);
+    --select-separator-margin: var(--spacing-2) 0;
+    --select-separator-size: 1px;
 
-  &:open {
+    appearance: base-select;
+
     &::picker-icon {
-      /* NOTE: Adjust the transform values to fine-tune the icon position */
-      transform: rotate(135deg) translateX(0.3em) translateY(-0.1em);
-    }
-  }
-
-  optgroup {
-    background-color: var(--select-optgroup-bg-color);
-  }
-
-  option {
-    padding: var(--select-option-padding);
-    background-color: var(--select-bg-color);
-
-    &:hover {
-      opacity: var(--select-hover-opacity);
-      cursor: pointer;
-      background-color: hsl(from var(--select-bg-color) h s calc(l * 0.9));
+      appearance: none;
+      content: "";
+      width: var(--select-picker-icon-size);
+      height: var(--select-picker-icon-size);
+      border: var(--select-picker-icon-border);
+      border-top: 0;
+      border-right: 0;
+      transform: rotate(var(--select-picker-icon-transform-rotate-closed))
+        translateX(calc(var(--select-picker-icon-transform-translate-x) * -1))
+        translateY(var(--select-picker-icon-transform-translate-y));
     }
 
-    &:checked {
-      background-color: var(--select-option-checked-bg-color);
-      color: var(--select-option-checked-text-color);
+    &:open {
+      &::picker-icon {
+        transform: rotate(var(--select-picker-icon-transform-rotate-open))
+          translateX(var(--select-picker-icon-transform-translate-x))
+          translateY(calc(var(--select-picker-icon-transform-translate-y) * -1));
+      }
     }
 
-    &::checkmark,
-    &::before {
-      display: none;
+    &::picker(select) {
+      appearance: base-select;
+      border-radius: var(--select-border-radius);
+      border: var(--select-picker-border);
     }
-  }
 
-  hr {
-    height: 1px;
-    border: none;
-    background-color: var(--select-border-color);
-    margin: var(--spacing-2) 0;
+    optgroup {
+      background-color: var(--select-optgroup-bg-color);
+    }
+
+    option {
+      padding: var(--select-option-padding);
+      background-color: var(--select-bg-color);
+
+      &:hover {
+        opacity: var(--select-hover-opacity);
+        cursor: pointer;
+        background-color: hsl(
+          from var(--select-bg-color) h s
+            calc(l * var(--select-option-hover-darker-rate))
+        );
+      }
+
+      &:checked {
+        background-color: var(--select-option-checked-bg-color);
+        color: var(--select-option-checked-text-color);
+      }
+
+      &::checkmark,
+      &::before {
+        display: none;
+      }
+    }
+
+    hr {
+      height: var(--select-separator-size);
+      border: none;
+      background-color: var(--select-separator-color);
+      margin: var(--select-separator-margin);
+    }
   }
 }

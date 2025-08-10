@@ -119,6 +119,39 @@ export const Group: Story = {
   },
 };
 
+export const Multiple: Story = {
+  render: () => {
+    const container = document.createElement("div");
+    const notSupportedMessage = document.createElement("p");
+    notSupportedMessage.textContent = "Multiple select is not supported";
+    notSupportedMessage.style.color = "red";
+    notSupportedMessage.style.fontWeight = "bold";
+    container.appendChild(notSupportedMessage);
+    const select = document.createElement("select");
+    select.className = "select";
+    select.multiple = true;
+    select.innerHTML = `
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+      `;
+    container.appendChild(select);
+    return container;
+  },
+  args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement as HTMLElement;
+    const select = canvas.querySelector("select") as HTMLSelectElement;
+
+    expect(select).not.toBeNull();
+    expect(select).toHaveClass("select");
+    expect(select.multiple).toBe(true);
+
+    await userEvent.selectOptions(select, ["option1", "option2"]);
+    expect(select).toHaveValue(["option1", "option2"]);
+  },
+};
+
 export const Disabled: Story = {
   render: () => {
     const select = document.createElement("select");
