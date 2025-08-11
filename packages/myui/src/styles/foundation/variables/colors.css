@@ -81,7 +81,7 @@
 
 @property --color-bg-grey {
   syntax: "<color>";
-  initial-value: #a0a0a0;
+  initial-value: #d0d0d0;
   inherits: true;
 }
 
