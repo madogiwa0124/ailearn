@@ -32,7 +32,8 @@ textarea.textarea {
     border-color: initial;
   }
 
-  &:invalid {
+  &:invalid,
+  &.--error {
     border-color: var(--textarea-invalid-border-color);
   }
 

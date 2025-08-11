@@ -28,7 +28,8 @@ select.select {
     opacity: var(--select-disabled-opacity);
   }
 
-  &:invalid {
+  &:invalid,
+  &.--error {
     border-color: var(--select-invalid-border-color);
   }
 

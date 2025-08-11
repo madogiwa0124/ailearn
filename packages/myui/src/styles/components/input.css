@@ -32,7 +32,8 @@ input.input {
     border-color: initial;
   }
 
-  &:invalid {
+  &:invalid,
+  &.--error {
     border-color: var(--input-invalid-border-color);
   }
 
