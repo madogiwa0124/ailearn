@@ -1,0 +1,76 @@
+.tag {
+  --tag-padding: var(--spacing-1) var(--spacing-2);
+  --tag-item-gap: var(--spacing-2);
+  --tag-border-color: var(--color-border);
+  --tag-border: 1px solid var(--tag-border-color);
+  --tag-border-radius: var(--border-radius-sm);
+  --tag-bg-color: var(--color-bg-grey);
+  --tag-hover-filter: brightness(0.9);
+  --tag-disabled-opacity: 0.65;
+  --tag-transition-duration: 0.2s;
+  --tag-transition-timing: ease;
+  --tag-small-font-size: small;
+
+  display: inline-flex;
+  align-items: center;
+  border: var(--tag-border);
+  border-radius: var(--tag-border-radius);
+  background-color: var(--tag-bg-color);
+  padding: var(--tag-padding);
+  gap: var(--tag-item-gap);
+  text-decoration: none;
+
+  /*
+    NOTE: This selector targets the interactive elements within the tag component.
+  */
+  &:where(a, button) {
+    appearance: none;
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus {
+        filter: var(--tag-hover-filter);
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: var(--tag-disabled-opacity);
+    }
+  }
+
+  &:has(.icon, svg) {
+    flex-shrink: 0;
+  }
+
+  &.--outline {
+    background-color: transparent;
+
+    &:where(a, button) {
+      appearance: none;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background-color: var(--tag-border-color);
+        }
+      }
+    }
+  }
+
+  &.--small {
+    font-size: var(--tag-small-font-size);
+  }
+
+  &.--transition {
+    &:where(a, button) {
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          transition: filter var(--tag-transition-duration)
+            var(--tag-transition-timing);
+        }
+      }
+    }
+  }
+}
